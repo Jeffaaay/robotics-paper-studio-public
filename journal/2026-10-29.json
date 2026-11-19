@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-29",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "umi-2024",
+      "display_name": "UMI · 继续读：观察与动作的时序对齐",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329v3",
+      "source_url": "https://www.roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "paper_version": "arXiv v3，2024-03-06；发表状态独立由 RSS 2024 论文集核实。",
+      "recommendation": "首选续读已选的 UMI，把今天范围收窄到部署时序：它把观察对齐、动作时间戳与硬件执行延迟放进策略接口，直接对应 OpenArm 双臂/夹爪接入时要检查的问题。今天先弄清一个接口机制；OpenArm 的实际延迟、抖动和跟踪能力仍需另行实测。",
+      "one_question": "轨迹形状没错，为什么相机、机械臂和夹爪的时间对不齐仍会失败？",
+      "start_here": "按 arXiv v3：先看 Fig. 5，再读 III-B 的 PD1.1 Observation latency matching 与 PD1.2 Action latency matching；接着定位 V-B Dynamic Tossing 的延迟消融。想看测量方法再读附录 A 的 Latency Measurement。先画出采集、接收、推理完成、动作生效四个时刻，不重读整篇。",
+      "reading_estimate": "AI 估计：聚焦续读 25–35 分钟；含延迟测量附录约 45–60 分钟。无需今天读完全文。",
+      "visual_idea": "教学示意：两条相同轨迹配一条时间轴，夹爪先错过释放时刻，再展示按目标时间戳提前发令并丢弃过期动作；仅作为待用户选定的动画问题，尚未制作。",
+      "history_status": "有讨论且已于 2026-10-25 选读；索引显示仍在读，用户原话笔记 0 条、AI 说明 1 条，未确认完成。已有任务 UMI：论文精读与视频（private-thread-id-redacted），选择续读时复用；原选择、长笔记和审核状态保留。",
+      "evidence_checked": "已打开 RSS 2024 论文集核对题目、全体作者及 DOI 10.15607/RSS.2024.XX.045；打开 arXiv 版本页与 v3 正文核对 Fig. 5、III-B 和 V-B 阅读入口；作者项目页提供延迟消融展示并链接代码。此为推荐级核查，消融的统计强度与向 OpenArm 迁移的条件仍需精读核对；AI 已解释过不等于用户已读懂。",
+      "verified_on": "2026-10-29 (America/Los_Angeles)",
+      "verification_sources": [
+        "https://www.roboticsproceedings.org/rss20/p045.html",
+        "https://arxiv.org/abs/2402.10329",
+        "https://arxiv.org/html/2402.10329v3",
+        "https://umi-gripper.github.io/",
+        "https://github.com/real-stanford/universal_manipulation_interface"
+      ],
+      "existing_thread_id": "private-thread-id-redacted",
+      "canonical_notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md"
+    },
+    {
+      "id": "efficient-robust-nmpc-tac-2021",
+      "display_name": "Efficient Robust MPC · 为扰动留出控制余量",
+      "title": "A computationally efficient robust model predictive control framework for uncertain nonlinear systems",
+      "authors": "Johannes Köhler, Raffaele Soloperto, Matthias A. Müller, Frank Allgöwer",
+      "year": 2021,
+      "venue": "IEEE Transactions on Automatic Control 66(2), 794–801 (2021)；2020-03-23 提前在线发表",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/1910.12081v2",
+      "source_url": "https://www.irt.uni-hannover.de/en/forschung/publikationen/publikation-detail/publications/a-computationally-efficient-robust-model-predictive-control-framework-for-uncertain-nonlinear-systems",
+      "code_url": "https://github.com/KohlerJohannes/CompEffRMPC",
+      "paper_version": "阅读入口是作者扩展版 arXiv:1910.12081v2，2020-06-04；不等同于 8 页期刊排版版。期刊 DOI 10.1109/TAC.2020.2982585。",
+      "recommendation": "AMR 控制备选：用随预测变化的误差管和约束收紧，为模型偏差留出余量；在线只处理描述误差管的标量界，是研究鲁棒性与计算负担取舍的清晰入口。适合补足现有学习控制/安全过滤器阅读中的确定性扰动处理。论文案例是非线性四旋翼数值算例；AMR 迁移是 AI 建议，丢包、时延或故障恢复不在这里自动获得保证。",
+      "one_question": "预测误差管变宽时，为什么名义轨迹的可用空间必须变窄？",
+      "start_here": "按 arXiv v2 扩展版：先读 I 的 Contribution，再读 II-A/II-B/II-C 的模型、增量可稳定性与扰动界假设；跳到 III-A 看误差管如何进入在线优化，最后看 V Case study: nonlinear quadrotor 的比较。今天可先略过 III-B 证明；需要实现细节再读 III-D。",
+      "reading_estimate": "AI 估计：概念和算例 40–55 分钟；连同稳定性证明 90–120 分钟。数学负担较高，需要 MPC、约束优化与 Lyapunov 基础。",
+      "visual_idea": "教学示意：俯视通道中一条名义轨迹带着半透明误差管前进；扰动界增大后收紧可用走廊，再显示名义轨迹调整。必须标明这是 AMR 类比，论文数值案例不是仓储机器人。",
+      "history_status": "已按 ID/论文 URL 查询完整阅读索引，没有该篇推荐或选择记录；现有长笔记目录也未发现对应条目。未加载旧聊天，故不宣称从未在其他场合讨论；没有精读任务。",
+      "evidence_checked": "作者所属大学的论文目录核实 2021 年 TAC 卷期、页码与 DOI；研究门户标明同行评审并区分 2020 在线日期。打开 arXiv 版本页及 v2 正文，核对扩展版身份、II/III/V 阅读入口和四旋翼数值算例；打开作者代码仓库，确认存在加性扰动与参数不确定性示例。未运行代码；定理全部条件、计算时间比较及其硬件可迁移性留待精读。",
+      "verified_on": "2026-10-29 (America/Los_Angeles)",
+      "verification_sources": [
+        "https://www.irt.uni-hannover.de/en/forschung/publikationen/publikation-detail/publications/a-computationally-efficient-robust-model-predictive-control-framework-for-uncertain-nonlinear-systems",
+        "https://research.uni-hannover.de/en/publications/a-computationally-efficient-robust-model-predictive-control-frame/",
+        "https://arxiv.org/abs/1910.12081",
+        "https://arxiv.org/html/1910.12081v2",
+        "https://github.com/KohlerJohannes/CompEffRMPC"
+      ]
+    },
+    {
+      "id": "cloth-funnels-icra-2023",
+      "display_name": "Cloth Funnels · 先整理到适合折叠的状态",
+      "title": "Cloth Funnels: Canonicalized-Alignment for Multi-Purpose Garment Manipulation",
+      "authors": "Alper Canberk, Cheng Chi, Huy Ha, Benjamin Burchfiel, Eric Cousineau, Siyuan Feng, Shuran Song",
+      "year": 2023,
+      "venue": "IEEE International Conference on Robotics and Automation (ICRA) 2023；arXiv 初稿为 2022 年",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2210.09347v1",
+      "source_url": "https://alpercanberk.github.io/",
+      "project_url": "https://clothfunnels.cs.columbia.edu/",
+      "code_url": "https://github.com/real-stanford/cloth-funnels",
+      "paper_version": "作者开放稿 arXiv:2210.09347v1，2022-10-17，8 页；会议年份为 ICRA 2023。",
+      "recommendation": "OpenArm 叠衣备选：先把衣物的形状和桌面位置/朝向整理好，再交给较简单的折叠步骤。比只追求铺开面积更贴近从揉皱衣物走向可靠叠衣的下一阶段，也与此前 FlingBot、SpeedFolding 的切入点不同。近期从已铺平 T-shirt 开始时，可先读细调和关键点折叠；其动态甩动与仿真训练不能直接视为 OpenArm 可用能力。",
+      "one_question": "衣服已经铺得很开，为什么还不一定处于可以可靠折叠的状态？",
+      "start_here": "按 arXiv v1：读 III-A 的两阶段流程，配合 Fig. 3 与 III-B 区分形状规范化和刚体对齐；再读 IV-D/Table II 的动作原语消融，以及 IV-F/Fig. 8 的下游折叠。优先比较 coverage 与 IoU 的含义，网络训练细节可稍后读。",
+      "reading_estimate": "AI 估计：8 页原文聚焦阅读 30–45 分钟；连同奖励定义和训练细节约 60 分钟。",
+      "visual_idea": "教学示意：并排显示两件铺开面积相近的衣服，一件袖子内折或方向错位，另一件形状与朝向均整理好；随后用同一折叠动作展示起始状态的影响。仅为待选动画问题，不能冒充实验结果。",
+      "history_status": "已按 ID/论文 URL 查询完整阅读索引，未发现该篇推荐或选择记录；有 FlingBot 和 SpeedFolding 候选，但不是同一篇。未加载旧聊天，其他未登记讨论未知；没有精读任务。",
+      "evidence_checked": "已打开第一作者主页的 ICRA 2023 接收记录、作者项目页、arXiv 元数据及 v1 正文。项目页 BibTeX 写 2022，与页面 ICRA 2023 标题和作者接收记录不一致；本卡用 2023 作会议年份，2022 作预印本年份。原文核对两阶段流程、奖励/原语消融和下游实验位置。作者代码页说明提供仿真训练与评估；具体成功率定义、类别训练方式和 OpenArm 迁移仍需精读核对，未运行代码。",
+      "verified_on": "2026-10-29 (America/Los_Angeles)",
+      "verification_sources": [
+        "https://alpercanberk.github.io/",
+        "https://clothfunnels.cs.columbia.edu/",
+        "https://arxiv.org/abs/2210.09347",
+        "https://arxiv.org/html/2210.09347v1",
+        "https://github.com/real-stanford/cloth-funnels"
+      ]
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-29T20:43:33+00:00"
+    }
+  ]
+}

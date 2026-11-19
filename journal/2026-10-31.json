@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "umi-2024",
+      "display_name": "UMI · 继续精读",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS), 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "paper_version": "arXiv 2402.10329v3，2024-03-06；会议出版记录 RSS 2024，DOI 10.15607/RSS.2024.XX.045",
+      "recommendation": "首选继续已在读的 UMI。你今天反馈讲解跳过了太多信息；建议先补齐“采集什么、动作标签从哪里来、策略输出什么、机器人如何执行”的因果链，再看相对轨迹。它直接连接 OpenArm 的示范采集、双臂空间关系与时序。已有 AI 说明不代表这些概念已经掌握。",
+      "one_question": "为什么一段动作都相对同一个起点表达，与每一步相对前一步的 delta action 不一样？",
+      "start_here": "先用摘要与 Fig. 1–2 找回整条流程，按需补 III-A 的 SLAM 与动作数据；再读 III-B 的 PD2.1–PD2.2 和 Fig. 6，区分 absolute、delta 与固定起点的 relative trajectory。随后看 V-A 的动作表示消融及校准误差解释。若当前疑问仍在前置概念，就从该疑问继续，不强推新节或自测。",
+      "reading_estimate": "续读约 40–60 分钟（AI 估计）：基础概念 15–25 分钟，原文与 Fig. 6 15–20 分钟，记录自己的疑问 10–15 分钟；可拆成多天。",
+      "visual_idea": "教学示意：三条轨迹分别使用世界坐标、逐步累加 delta、同一个起点的相对目标；引入一次跟踪偏差，比较后续目标如何变化。只展示表示机制，不伪造实验或 OpenArm 成功率；待选择和真实笔记到位后制作。",
+      "history_status": "已选择且在读，非新论文。2026-10-31 的中文导读及讲解深度反馈见 papers/umi-2024/PROGRESS.md；用户研究笔记 0 条，尚未确认读完。继续时复用登记任务 private-thread-id-redacted。",
+      "evidence_checked": "核对 RSS 官方出版记录、作者页及 arXiv v3 原文 III-B PD2.1–PD2.2、Fig. 6 图注、V-A 消融。原文将 absolute baseline 的偏差与坐标校准误差联系，不能推成绝对动作天然更差；尚未逐式精读或复现 OpenArm。今天重点是补基础与坐标表示，与前次时延/双臂入口不同；原图细节留到精读逐项核对。",
+      "verified_on": "2026-10-31T18:15:52Z",
+      "verification_sources": [
+        "https://roboticsproceedings.org/rss20/p045.html",
+        "https://arxiv.org/abs/2402.10329v3",
+        "https://arxiv.org/html/2402.10329v3",
+        "https://umi-gripper.github.io/"
+      ],
+      "existing_task_id": "private-thread-id-redacted",
+      "canonical_notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md"
+    },
+    {
+      "id": "cbf-qp-tac-2017",
+      "display_name": "CBF-QP · 安全约束与控制目标",
+      "title": "Control Barrier Function Based Quadratic Programs for Safety Critical Systems",
+      "authors": "Aaron D. Ames, Xiangru Xu, Jessy W. Grizzle, Paulo Tabuada",
+      "year": 2017,
+      "venue": "IEEE Transactions on Automatic Control 62(8):3861–3876, 2017（2016-12-13 online）",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/pdf/1609.06408v2",
+      "source_url": "https://authors.library.caltech.edu/records/jnhr0-1ww05",
+      "paper_version": "arXiv 1609.06408v2，2016-12-05 作者稿；期刊卷期年份 2017，DOI 10.1109/TAC.2016.2638961",
+      "recommendation": "AMR 方向的基础备选：把“尽量跟踪目标”和“满足安全约束”写进同一优化问题，理解何时需要放松性能目标。它能补齐此前预测安全过滤器/CBF 候选的基础。原文用 ACC 和车道保持说明方法，向 AMR 迁移需重新处理模型、可行性、采样与时延。",
+      "one_question": "想保持目标速度却逼近安全边界时，QP 为什么放松性能目标，而保留安全约束？",
+      "start_here": "先读 I-B 的车辆动机；用 II 的安全集/forward invariance 定义与 III 的 CBF 建立概念；重点读 IV-B 的 CLF-CBF QP 和式 (33)–(34)，再看 V-A/VI-A 的 ACC 设置与仿真。公式编号按所链接 arXiv v2 作者稿；首遍可暂缓证明。",
+      "reading_estimate": "约 50–75 分钟（AI 估计）；需要微分方程、反馈控制和约束优化基础。第一遍只读动机、约束含义与案例可控制在 30–40 分钟。",
+      "visual_idea": "教学示意：前车减速，后车的目标速度仍高；安全约束逐渐限制允许的控制输入，QP 放松速度目标后减速。画清可行输入范围，不把该示意当 AMR 硬件验证。",
+      "history_status": "当前索引中未发现同 ID、题名或 arXiv 1609.06408；已知历史笔记目录未标记此篇。未据此断言用户从未在其他地方读过；未选择、无专属任务。",
+      "evidence_checked": "核对 Caltech 作者机构记录的作者、录用/online 日期、TAC 卷期页码与 DOI，并阅读 arXiv v2 的安全集定义、IV-B、V-A 及仿真章节定位。其保证依赖动力学、正则性、可行控制等条件；不能直接保证采样延迟、定位故障或安全集外任意状态的恢复。推荐级核查，证明与 AMR 建模仍待精读；未核实与本文直接关联的官方代码，故不附第三方实现。",
+      "verified_on": "2026-10-31T18:15:52Z",
+      "verification_sources": [
+        "https://authors.library.caltech.edu/records/jnhr0-1ww05",
+        "https://arxiv.org/abs/1609.06408v2",
+        "https://arxiv.org/pdf/1609.06408v2"
+      ]
+    },
+    {
+      "id": "unifolding-corl-2023",
+      "display_name": "UniFolding · 展开到折叠",
+      "title": "UniFolding: Towards Sample-efficient, Scalable, and Generalizable Robotic Garment Folding",
+      "authors": "Han Xue, Yutong Li, Wenqiang Xu, Huanyu Li, Dongzhe Zheng, Cewu Lu",
+      "year": 2023,
+      "venue": "Conference on Robot Learning (CoRL), 2023；PMLR 229:3321–3341",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2311.01267v1",
+      "source_url": "https://proceedings.mlr.press/v229/xue23b.html",
+      "project_url": "https://unifolding.robotflow.ai/",
+      "code_url": "https://github.com/xiaoxiaoxh/UniFolding",
+      "paper_version": "arXiv 2311.01267v1，2023-11-02；另有 CoRL 2023 / PMLR 正式全文",
+      "recommendation": "OpenArm 叠 T-shirt 的系统备选：从局部点云决定动作类型和抓放点，连接展开与折叠。近期可先理解双臂 pick-and-place；揉皱衣物、fling 与在线数据迭代留作后续。作者在 Flexiv 双臂与专用深度相机上实验，不能直接移植成 OpenArm 的效果承诺。",
+      "one_question": "只看到当前衣物的局部点云，机器人怎样决定下一步该展开还是折叠，并选出双臂抓放点？",
+      "start_here": "从 Fig. 1–2 的流程图及图注进入，读 §3.1 action primitives、§3.2 UFONet，再看 §3.2.1 的不可达点处理。随后对照 §4.2 硬件、§5.1 的成功标准、Table 1 与 §5.4/Appendix E 的失败案例；§3.3 数据与训练可作为第二轮。",
+      "reading_estimate": "约 45–65 分钟（AI 估计）：流程与动作 20 分钟，实验/失败 15–20 分钟，和 OpenArm 的差距 10–25 分钟。",
+      "visual_idea": "教学示意：衣物点云输入，选择 fling/fold1/fold2 后显示双臂抓放点；若点不可达，插入规则式 drag/mop 重新摆位。用一处袖子卷起的反例说明铺展面积好并不保证后续能折好。",
+      "history_status": "当前索引中未发现同 ID、题名或 arXiv 2311.01267；与已推荐的 Cloth Funnels、SpeedFolding、BiFold 是不同论文。已知旧笔记目录未标记此篇；未选择、无专属任务。",
+      "evidence_checked": "核对 PMLR CoRL 2023 记录、作者项目/代码和 arXiv v1 全文 §3、§4.2、§5.1–5.4、Appendix E。UFONet 预测三种学习动作，drag/mop 是可达性补救规则；实机为两台 Flexiv Rizon。测试含 20 件未见衣物，成功定义是在 10 个动作步内按规则展开并折叠；单层抓取、缠结与跨硬件迁移仍有限制。仿真、人工示范及实机反馈训练阶段不可混为只靠少量实机演示；细节和公平性待选中精读。",
+      "verified_on": "2026-10-31T18:15:52Z",
+      "verification_sources": [
+        "https://proceedings.mlr.press/v229/xue23b.html",
+        "https://arxiv.org/abs/2311.01267v1",
+        "https://arxiv.org/html/2311.01267v1",
+        "https://unifolding.robotflow.ai/",
+        "https://github.com/xiaoxiaoxh/UniFolding"
+      ],
+      "proceedings_pdf_url": "https://proceedings.mlr.press/v229/xue23b/xue23b.pdf"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-31T18:16:00+00:00"
+    }
+  ]
+}

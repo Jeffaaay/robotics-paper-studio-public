@@ -1,0 +1,4 @@
+manim==0.22.0
+imageio-ffmpeg==0.6.0
+av==19.0.2
+Pillow==13.0.0

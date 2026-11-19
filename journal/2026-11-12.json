@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-12",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "fastrack-tac-2021",
+      "display_name": "FaSTrack · 规划与跟踪之间的安全余量",
+      "title": "FaSTrack: a Modular Framework for Real-Time Motion Planning and Guaranteed Safe Tracking",
+      "authors": "Mo Chen; Sylvia L. Herbert; Haimin Hu; Ye Pu; Jaime F. Fisac; Somil Bansal; SooJean Han; Claire J. Tomlin",
+      "year": 2021,
+      "venue": "IEEE Transactions on Automatic Control 66(12):5861–5876 (2021)",
+      "publication_status": "peer_reviewed_journal",
+      "doi": "10.1109/TAC.2021.3059838",
+      "paper_version": "作者公开稿 arXiv:2102.07039v2，2021-03-13；推荐的是 2021 TAC 期刊论文，非 2017 CDC 初版。",
+      "paper_url": "https://arxiv.org/html/2102.07039v2",
+      "source_url": "https://collaborate.princeton.edu/en/publications/fastracka-modular-framework-for-real-time-motion-planning-and-gua/",
+      "code_url": "https://github.com/HJReachability/Tracking",
+      "recommendation": "首选，补 AMR 规划与低层控制的接口：路径避开障碍物，实际车体仍可能因跟踪误差碰撞。可借这篇理解 tracking error bound（TEB）及其对应控制器，再判断自己的模型、扰动范围和感知条件是否足够。理论负担较高，今天可先读框架与车辆例子。",
+      "one_question": "规划轨迹没有碰障碍物，实际机器人为什么仍会碰？如何把跟踪误差变成规划时需要预留的空间？",
+      "start_here": "按 arXiv v2：先看 Fig. 1 和 III 的 planning/tracking model，再读 IV、Figs. 2–4；随后看 VI 的 Algorithm 1 与感知范围条件，最后用 VII-A 的 5D car / 3D car 例子对照。想读证明时再进 V-C Proposition 1、V-D.4；别跳过 VIII 的限制。",
+      "reading_estimate": "约 35–50 分钟理解框架与一个例子；完整 HJ 推导另留 60–90 分钟。AI 估计，不是阅读完成记录。",
+      "visual_idea": "教学示意：虚线规划点通过窄道，实际车体偏离；显示围绕规划点的误差区域后重新绕行。形状只作示意，不能把任意圆圈当作算得的 TEB；不提前制作视频。",
+      "history_status": "索引中未发现相同标题、ID 或 arXiv:2102.07039；首次列入候选，未发现专属任务。此前推荐过其他 safety filter/MPC 论文，不等于已讨论本篇。",
+      "evidence_checked": "已核对 Princeton 同行评审期刊记录、作者 arXiv 元数据及 v2 原文 III–VI、VII-A、VIII。v2 正文报告三组数值仿真；硬件结果引用其他工作。保证依赖给定模型/扰动界、初始相对状态在 TEB 内、配套跟踪控制及感知/规划条件；VIII 明确感知与 tracking model 假设。不能外推为任意延迟、失控故障或 AMR 实机保证。代码链接是原 FaSTrack 系列仓库，README 标记其中 C++/ROS 部分已弃用；未核实为 TAC 全部实验的对应版本、未运行。推荐阶段未逐式审查证明或复现实验。",
+      "evidence_sources": [
+        "https://arxiv.org/abs/2102.07039v2",
+        "https://arxiv.org/html/2102.07039v2",
+        "https://collaborate.princeton.edu/en/publications/fastracka-modular-framework-for-real-time-motion-planning-and-gua/",
+        "https://haiminhu.org/publications/",
+        "https://github.com/HJReachability/Tracking/blob/master/README.md"
+      ],
+      "verified_on": "2026-11-12T09:05:16.2084011-08:00"
+    },
+    {
+      "id": "medor-rss-2022",
+      "display_name": "MEDOR · 看不见的布料仍然存在",
+      "title": "Mesh-based Dynamics with Occlusion Reasoning for Cloth Manipulation",
+      "authors": "Zixuan Huang; Xingyu Lin; David Held",
+      "year": 2022,
+      "venue": "Robotics: Science and Systems XVIII (RSS 2022)",
+      "publication_status": "peer_reviewed_conference",
+      "doi": "10.15607/RSS.2022.XVIII.011",
+      "paper_version": "arXiv:2206.02881v2，2022-06-22；RSS 2022 正式论文的作者公开稿。",
+      "paper_url": "https://arxiv.org/html/2206.02881v2",
+      "source_url": "https://roboticsproceedings.org/rss18/p011.html",
+      "project_url": "https://sites.google.com/view/occlusion-reason/home",
+      "code_url": "https://github.com/zxhuang97/medor",
+      "recommendation": "备选，适合为 OpenArm 从铺平衣物走向揉皱衣物做准备：只看可见表面可能遗漏藏在下面的衣角。把遮挡造成的状态估计问题与夹爪抓错层的问题分开，能帮助设计后续感知与失败诊断；本篇不是双臂 T-shirt 折叠方案。",
+      "one_question": "衣角藏在下面时，为什么让预测网格的每一点都贴合可见点云，反而会把隐藏布料“抹掉”？",
+      "start_here": "按 arXiv v2：Fig. 1 → III-A 任务定义 → IV-A/B、Fig. 3 与 Eq. (2) 的单向 Chamfer loss，再看 IV-C 的动力学规划。读 V-C 消融；用 V-D、Table II、Figs. 6/8 检查实物结果和失败。",
+      "reading_estimate": "约 30–45 分钟理解遮挡与损失方向；网格网络、动力学及补充材料另留 45–60 分钟。AI 估计。",
+      "visual_idea": "教学示意：折在下面的衣角用淡色网格表示。对比双向贴合把隐藏网格拉向可见面，与观测点到网格的单向贴合；强调保留隐藏部分的可能性不等于恢复了真实形状。只记录候选动画点。",
+      "history_status": "索引中未发现相同标题、ID 或 arXiv:2206.02881；首次列入候选，未发现专属任务。未读取全部旧笔记，不能因此断言用户从未见过。",
+      "evidence_checked": "已核对 RSS 正式 proceedings、arXiv v2、作者项目页/个人主页及官方代码 README。原文 IV-B 使用单向 Chamfer 与 mapping consistency 两项优化预测网格；V-C 提供消融。V-D 实机为单臂 Franka Panda，测试裤子和裙装铺平；不是 OpenArm 双臂 T-shirt 折叠验证。Table II 的 normalized improvement 不是任务成功率；Fig. 6/8 展示重建遗漏、夹爪变形与抓错层。RSS PDF 超出抓取大小限制，本次依据可访问的 v2 HTML 核查方法与入口。项目旧页写 Code coming soon，但作者主页已链接官方仓库；只核实 README，未下载模型或复现。网络细节和所有量化结论留待选中后精读。",
+      "evidence_sources": [
+        "https://roboticsproceedings.org/rss18/p011.html",
+        "https://arxiv.org/abs/2206.02881v2",
+        "https://arxiv.org/html/2206.02881v2",
+        "https://sites.google.com/view/occlusion-reason/home",
+        "https://zxhuang97.github.io/",
+        "https://github.com/zxhuang97/medor/blob/main/README.md"
+      ],
+      "verified_on": "2026-11-12T09:05:16.2084011-08:00"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "UMI · 继续未完成的精读",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems XX (RSS 2024)",
+      "publication_status": "peer_reviewed_conference",
+      "paper_version": "arXiv:2402.10329v3，2024-03-06；沿用已有精读版本，会议状态由 RSS proceedings 交叉核实。",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "recommendation": "续读备选。已有选择仍有效，无需为了每日推荐换题。沿着“采集 → 动作标签 → 策略 → 执行”补足上下文，再看两只夹爪如何知道彼此位置；保留你此前对讲解跳步过多的反馈。已有 AI 解释不表示你已理解。",
+      "one_question": "两只夹爪各自都有相机和相对动作，为什么双臂协作仍需要 inter-gripper relative pose？",
+      "start_here": "先用 Fig. 2 和 III-A 补采集、SLAM 与动作标签，再读 III-B PD2.1/PD2.2 与 Fig. 6，分清固定当前参考姿态和逐步 delta action；接 PD2.3 的 map-then-localize，最后看 V-C、Fig. 8(b) 的双臂消融。若你有更早的疑问，从那处继续，不强行跳到自测。",
+      "reading_estimate": "本轮约 25–40 分钟，只推进一个具体疑问；完整精读可以跨天。AI 估计。",
+      "visual_idea": "教学示意：并排显示两只夹爪的局部视野，再补上它们之间的位置关系；展示协调抓取需要的信息。须等你留下实际观点后再确定动画。",
+      "history_status": "已于 2026-10-25 选中，仍在阅读中；当前登记 user_notes 0 条、AI 说明 3 条，未确认读完。PROGRESS 保留原话 you skip way too much info。若选择续读，先复查 registry 并复用任务 private-thread-id-redacted，不新建重复任务。",
+      "evidence_checked": "重查 RSS 2024 proceedings、arXiv v3、项目页及 III-B PD2.1–PD2.3、V-C、VIII。双臂相对位姿来自共享地图下的定位；原文消融支持该实验设置下的协调作用，不能直接外推为 OpenArm 成功率。实际阅读位置与理解程度未知；延迟、几何、跟踪与可达性适配仍需实测。本次为候选入口核查，未新增精读、用户笔记、完成确认或媒体审核。",
+      "evidence_sources": [
+        "https://roboticsproceedings.org/rss20/p045.html",
+        "https://arxiv.org/abs/2402.10329v3",
+        "https://arxiv.org/html/2402.10329v3",
+        "https://umi-gripper.github.io/"
+      ],
+      "verified_on": "2026-11-12T09:05:16.2084011-08:00"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-12T17:05:16+00:00"
+    }
+  ]
+}

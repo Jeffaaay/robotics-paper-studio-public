@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "title": "Robotics Paper Studio — review queue",
+  "start_date": null,
+  "schedule_mode": "manual_review_queue",
+  "auto_publish": false,
+  "voiceover_default": false,
+  "characteristics_status": "用户所说的两个characteristic待补充，未代为确定",
+  "confirmed_characteristics": [
+    null,
+    null
+  ],
+  "audience_hypothesis": "有一点技术背景、想看懂AI或机器人为何失败的英文读者，先以美国工程学生和早期从业者为目标假设。",
+  "principles": [
+    "Daily paper selection and the user’s notes precede new content production.",
+    "Only reviewed exact video and caption versions may be manually published.",
+    "This queue currently contains one earlier schematic sample; it is not a completed daily reading."
+  ],
+  "days": [
+    {
+      "id": "day-01",
+      "day": 1,
+      "title": "Leave room.",
+      "format": "B",
+      "duration": "16 秒 · 两个版本",
+      "seconds": 16.033,
+      "visual": "同一辆小车、同一次侧向推力：第一次贴边碰壁，第二次留出余量通过。",
+      "text_strategy": "A无解释文字；B三组关键标签，共6个英文词。两版均无旁白、无音乐。",
+      "evidence_requirement": "手工编排的教学示意，非控制器实测或性能比较。两版只改变解释标签。",
+      "risk": "只能说明留出空间的直觉，不代表不确定性方法的安全保证。",
+      "experiment": "先由你比较A/B的清晰度和审美；不是已发布的随机实验。",
+      "post_caption": "Leave room for being wrong. A tiny visual analogy for clearance under uncertainty. Hand-animated schematic; not a controller benchmark.",
+      "variants": [
+        {
+          "id": "d01-a-v1",
+          "label": "A · 让画面说话",
+          "description": "无解释文字；只保留小号 schematic 标记。",
+          "file": "output/launch30/minimal_control_A_no_labels_1080x1920.mp4",
+          "cover": "output/launch30/A_no_labels_cover.jpg"
+        },
+        {
+          "id": "d01-b-v1",
+          "label": "B · 六个词",
+          "description": "Perfect plan · Small push · Leave room；动作与A相同。",
+          "file": "output/launch30/minimal_control_B_three_labels_1080x1920.mp4",
+          "cover": "output/launch30/B_three_labels_cover.jpg"
+        }
+      ],
+      "production_status": "样片已完成，待审核",
+      "approval": "unreviewed"
+    }
+  ]
+}

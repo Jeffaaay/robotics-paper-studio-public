@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-15",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "tactile-cloth-singulation-iros-2022",
+      "display_name": "触觉抓层 · 抓错后如何重试",
+      "title": "Learning to Singulate Layers of Cloth using Tactile Feedback",
+      "authors": "Sashank Tirumala; Thomas Weng; Daniel Seita; Oliver Kroemer; Zeynep Temel; David Held",
+      "year": 2022,
+      "venue": "IEEE/RSJ IROS 2022, pp. 7773–7780；DOI 10.1109/IROS47612.2022.9981341",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2207.11196v1",
+      "source_url": "https://sites.google.com/view/reskin-cloth",
+      "project_url": "https://sites.google.com/view/reskin-cloth",
+      "code_url": "https://github.com/sashank-tirumala/cloth_reskin_ros",
+      "recommendation": "今天首选。与 OpenArm 叠 T-shirt 的抓取问题相连：抓到布之后，还需判断层数并决定是否重抓。这篇把触觉分类接入局部重试，机制明确。实验使用 Franka、mini-Delta 夹爪和 ReSkin，布边由人预先摆好；适合借鉴反馈思路，尚未验证普通 OpenArm 夹爪或完整叠衣。",
+      "one_question": "只想抓最上面一层，却夹到两层时，机器人如何用触觉决定下一次抓哪里？",
+      "start_here": "按 arXiv v1 阅读：§III 任务定义 → Fig. 2 / §IV-B 分类器 → Fig. 4 / §IV-C 重试策略 → §V-A 与 Tables II–III。先分清“识别层数”和“稳定提起”；Fig. 7 看两层抓取为何更难。",
+      "reading_estimate": "AI 估计：25–40 分钟掌握机制和实验边界；分类训练细节可第二轮再读。",
+      "visual_idea": "教学示意：目标一层 → 触觉判成两层 → 松开、调整接近高度、再抓。最后并列“判对但滑落”和“抓稳且层数正确”；只画机制，不制作成片。",
+      "history_status": "阅读索引中按题名、ID 与 arXiv 2207.11196 查询均无匹配；既有背景目录也未指向此篇。当前可用记录未见讨论，不推断用户从未在别处读过。",
+      "evidence_checked": "核对作者项目页、公开 v1（2022-07-22）§III–VI、作者代码 README，并用 IEEE 向 Crossref 提交的 DOI 元数据核实会议、作者和页码。IEEE 页面需浏览器验证；未逐页比较正式版。每条件10次试验，单层结果不能外推两层：未见布料上的两层触觉反馈为4/10与1/10；每次试验最多10次抓取尝试。训练代码由作者链接至 https://github.com/DanielTakeshi/cloth_reskin 。代码依赖定制硬件，未运行；其他实现细节与统计解释留待选读核查。",
+      "verified_on": "2026-11-15T16:04:29-08:00"
+    },
+    {
+      "id": "data-driven-mpc-tac-2021",
+      "display_name": "数据驱动 MPC · 含噪数据与稳定性",
+      "title": "Data-Driven Model Predictive Control With Stability and Robustness Guarantees",
+      "authors": "Julian Berberich; Johannes Köhler; Matthias A. Müller; Frank Allgöwer",
+      "year": 2021,
+      "venue": "IEEE Transactions on Automatic Control 66(4):1702–1717, April 2021；在线 2020-06-05；DOI 10.1109/TAC.2020.3000182",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/html/1906.04679v3",
+      "source_url": "https://www.irt.uni-hannover.de/en/forschung/publikationen/publikation-detail/publications/data-driven-model-predictive-control-with-stability-and-robustness-guarantees",
+      "recommendation": "AMR 控制备选。适合厘清“直接用输入输出数据做预测”需要什么条件，以及为何含噪数据要引入松弛量与正则化。它提供学习控制的理论基础；对象是 LTI 系统，不能直接套成非线性 AMR、延迟尖峰或故障恢复保证。",
+      "one_question": "历史数据含噪时，为什么强迫预测与数据完全一致反而可能使控制出问题？",
+      "start_here": "按 v3（2021-04-16）：§II / Eq. (1) 先理解 Hankel 数据轨迹表示；§III-A 对照 §IV-A / Eq. (6)，再看 Algorithm 2 的 n-step 执行。§V 的四水箱数值例子建立直觉；§IV-E Theorem 3 的条件与证明可分两轮读。",
+      "reading_estimate": "AI 估计：40–60 分钟读问题和机制；稳定性证明另留60–90分钟，需要线性系统、矩阵与 MPC 基础。",
+      "visual_idea": "教学示意：同一组含噪观测，展示精确等式与允许受罚偏差的区别，再画 n 步执行时间轴。动画仅解释松弛与正则化，不用示意曲线冒充实验或安全证明。",
+      "history_status": "阅读索引按题名、ID 与 arXiv 1906.04679 查询无匹配。当前记录未见此篇讨论；与此前 LMPC、鲁棒 MPC 候选是不同论文。",
+      "evidence_checked": "核对 Hannover 作者机构记录、IEEE 索引元数据、出版社提交的 Crossref 记录，以及原文 v3 §II、III-A、IV-A/IV-E、V。无噪声与含噪声结论须分开；后者依赖持续激励、足够小的有界输出测量噪声、适当正则化和初始条件，得到 practical exponential stability。§IV 明确不考虑输出约束，§V 是线性化四水箱数值例子；不构成 AMR 避障保证。未核实作者发布的论文专属代码，未把第三方实现列作作者代码。完整证明与版本差异待选读核查。",
+      "verified_on": "2026-11-15T16:04:29-08:00"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "继续 UMI · 相对轨迹与逐步增量",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024；DOI 10.15607/RSS.2024.XX.045",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://www.roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "recommendation": "续读备选。你已选过 UMI，尚未确认读完；可以接着把动作表示讲透。先从采集、动作标签、训练与部署的关系补齐概念，再区分相对同一起点的轨迹和逐步 delta action，之后连接双臂相对位姿。保留你对讲解过于跳跃的反馈。",
+      "one_question": "都叫“相对动作”，为什么相对同一起点的整段轨迹，与每一步相对前一步的增量不同？",
+      "start_here": "v3：先回看 Fig. 2、Fig. 5(b) 的数据到策略流程；接 Fig. 6 和 §III-B PD2.1–PD2.2；再读 PD2.3 与 §V-C，区分单臂动作坐标和两夹爪空间关系。逐步说明再讨论，不把已有 AI 解释当成掌握；OpenArm 适配仍需实测。",
+      "reading_estimate": "AI 估计：本轮 30–45 分钟，按实际疑问继续补基础；不要求今天读完全篇。",
+      "visual_idea": "教学示意：同样三个目标点，分别画相对同一参考位姿和逐步参考；再加入两只夹爪，区分各自动作与彼此位置关系。",
+      "history_status": "已选、阅读中。索引记录 0 条用户研究笔记、3 条 AI 说明；存在讲解深度反馈，实际阅读位置与理解程度未知。选续读时先复核 registry，再返回原任务 UMI：论文精读与视频（private-thread-id-redacted），不新建重复任务。",
+      "evidence_checked": "本轮核对 RSS 2024 正式 proceedings 的题名、作者与发表记录，arXiv v3 的 §III-B PD2.1–PD2.3 / Fig. 6，以及作者项目入口。续读先补采集、动作标签、训练和部署之间的关系，再区分固定参考轨迹与逐步增量；保持用户对讲解深度的反馈。仅查本篇 PROGRESS、registry 与昨日候选元数据，长笔记沿用 https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md 。已有解释不代表掌握或读完；没有新增硬件验证。",
+      "verified_on": "2026-11-15T16:04:29-08:00"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-16T00:04:29+00:00"
+    }
+  ]
+}

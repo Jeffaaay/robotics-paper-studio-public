@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "repository": "Jeffaaay/robotics-paper-studio",
+  "visibility": "public",
+  "notes_repository": "Jeffaaay/robotics-research-notes",
+  "timezone": "America/Los_Angeles",
+  "recommendation_time": "09:00",
+  "automation_id": null,
+  "automation_status": "NOT_CONFIGURED",
+  "automation_kind": "cron",
+  "context_workflow": {
+    "daily_run": "fresh_standalone_task",
+    "paper_discussion": "one_task_per_selected_paper",
+    "create_paper_task": "on_explicit_user_selection",
+    "entrypoint": "context/START_HERE.md",
+    "reading_index": "context/READING_INDEX.md",
+    "paper_registry": "papers/registry.json",
+    "migration_date": "2026-10-29",
+    "inherit_umbrella_chat": false
+  },
+  "daily_candidate_count": 3,
+  "daily_reading_target": 1,
+  "primary_tracks": ["AMR control, uncertainty, timing and fault recovery", "OpenArm bimanual gripper manipulation, cloth folding, teleoperation and imitation learning"],
+  "deferred_interests": ["dexterous hands", "robot piano playing"],
+  "paper_quality": {
+    "preferred_journals": ["IJRR", "IEEE T-RO", "Science Robotics", "IEEE RA-L"],
+    "preferred_conferences": ["RSS", "CoRL", "ICRA", "IROS"],
+    "allow_relevant_classics": true,
+    "label_preprints_and_company_reports": true,
+    "criteria": ["relevance", "clear contribution", "credible baselines and evidence", "stated limitations", "accessible primary text", "one teachable mechanism"]
+  },
+  "video": {"language": "en", "voiceover": false, "spoken_subtitles": false, "minimal_labels": true, "target_seconds": [12, 30], "resolution": [1080, 1920], "fps": 30, "review_required": true},
+  "twitter": {"language": "en", "requires_actual_user_viewpoint": true, "separate_review_required": true},
+  "publication": {"mode": "manual", "auto_publish": false, "trial_days": 30, "target_posts_per_day": 1, "start_date": null},
+  "confirmed_user_characteristics": [null, null],
+  "history_checked": "2026-10-25",
+  "prior_notes": ["bunny-visionpro", "ditto-x", "realdexumi", "handelbot", "unfolding-robotics", "rc-lb-nmpc"],
+  "prior_notes_mean_reading_completed": false
+}

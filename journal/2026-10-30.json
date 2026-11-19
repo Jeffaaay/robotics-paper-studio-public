@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-30",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "bifold-icra-2025",
+      "display_name": "BiFold · 双臂叠衣的动作表示",
+      "title": "BiFold: Bimanual Cloth Folding with Language Guidance",
+      "authors": "Oriol Barbany; Adrià Colomé; Carme Torras",
+      "year": 2025,
+      "venue": "ICRA 2025, pp. 5652–5659；DOI: 10.1109/ICRA55743.2025.11127549",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2501.16458v2",
+      "source_url": "https://barbany.github.io/bifold/",
+      "project_url": "https://barbany.github.io/bifold/",
+      "code_url": "https://github.com/Barbany/bifold",
+      "recommendation": "今日首选。贴近 OpenArm 固定桌面、先铺平再折叠的近期目标：研究如何把图像和指令变成左右夹爪的抓点、放点，再交给动作基元执行。先看动作接口与评估方式，有助于决定示范数据该记录什么。论文主要评估仿真及真实衣物图像上的动作预测；不能据此声称已验证 OpenArm 或端到端实机叠衣成功率。",
+      "one_question": "同一句“对折”，怎样得到左右手的抓放点；点预测得准，为什么还不保证折得好？",
+      "start_here": "先看 Fig. 1–2 和 III-A（左右手的 pick/place 热图与 quasi-static 动作）；再看 III-B 的示范语言标注；用 IV 的仿真与实物图像评估区分“预测点准确”和“实际折叠成功”。最后读作者 v2 的 Appendix D-C，核对像素误差与执行结果的差别。",
+      "reading_estimate": "先读机制与图表约 25–35 分钟；连同数据集和评估细节约 60–90 分钟。AI 估计，不表示已读完。",
+      "visual_idea": "教学示意：一件已铺平 T-shirt 上出现左右两组抓点→放点箭头，再将抓点略微偏移，展示布料可能形成不同折痕。只说明动作表示及误差敏感性，不把示意动画当实验结果；选定并有用户笔记后才制作。",
+      "history_status": "查询当前 reading-index.json 的 ID、标题和 arXiv URL，未发现先前推荐或选读记录；config 的既有笔记列表未列此论文。索引外是否讨论过未知。",
+      "evidence_checked": "2026-10-30 核对作者项目页的 ICRA 2025 标注、作者名单和官方代码；IRI 机构检索记录给出页码与 DOI。阅读 arXiv v2（2025-06-16 修订）的 III-A/B、IV 及 Appendix D-C，确认动作空间、铺平初态及评估边界。项目页另链接 workshop extension，未将其当作本篇主会论文的独立结果。基线公平性、完整结果与适配 OpenArm 的控制细节仍待精读。",
+      "verified_on": "2026-10-30T16:36:33+00:00",
+      "paper_version": "arXiv:2501.16458v2, 2025-06-16；与 ICRA 2025 正式出版记录分开标注",
+      "verification_sources": [
+        {
+          "url": "https://arxiv.org/abs/2501.16458v2",
+          "supports": "标题、作者、版本历史"
+        },
+        {
+          "url": "https://arxiv.org/html/2501.16458v2",
+          "supports": "III-A/B、IV、Appendix D-C 的方法入口及评估限制"
+        },
+        {
+          "url": "https://barbany.github.io/bifold/",
+          "supports": "作者项目页、ICRA 2025、代码链接与 limitations"
+        },
+        {
+          "url": "https://www.iri.csic.es/publications/show/3029",
+          "supports": "机构的 ICRA 2025 卷页/DOI 检索记录；直开超时，由作者项目页交叉验证会议"
+        },
+        {
+          "url": "https://github.com/Barbany/bifold",
+          "supports": "官方实现，README 的 ICRA 2025 引用；未运行代码"
+        }
+      ]
+    },
+    {
+      "id": "time-distributed-mpc-tac-2022",
+      "display_name": "Time-distributed MPC · 有限计算与稳定性",
+      "title": "An Analysis of Closed-Loop Stability for Linear Model Predictive Control Based on Time-Distributed Optimization",
+      "authors": "Dominic Liao-McPherson; Terrence Skibik; Jordan Leung; Ilya Kolmanovsky; Marco M. Nicotra",
+      "year": 2022,
+      "venue": "IEEE Transactions on Automatic Control 67(5): 2618–2625, May 2022；online 2021-06-03；DOI: 10.1109/TAC.2021.3086295",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/2009.12294v2",
+      "source_url": "https://experts.colorado.edu/display/pubid_326601",
+      "recommendation": "AMR 控制/计算时序备选。把求解器也看成带内部状态的动态系统，研究每个采样周期只做有限次优化时，求解误差如何与被控对象相互影响。适合用来思考固定计算预算下的控制设计。本文针对有输入约束的线性二次 MPC；不能直接推出非线性 AMR、通信延迟、超时停机或故障恢复的保证。",
+      "one_question": "MPC 每周期只算几步、下一周期接着算，什么条件能让控制误差与求解误差一起收敛？",
+      "start_here": "读 Fig. 1 的 plant–optimizer 闭环，再读 II 的问题设置和式 (4)，接着 III Optimization Strategy；有兴趣再进入 IV Stability Analysis of the Coupled System。第一轮只辨清系统状态 x、求解器状态 z、每周期迭代数与假设，不先啃全部证明。",
+      "reading_estimate": "图示与问题设置约 25–40 分钟；稳定性界与证明约 90–120 分钟，需线性系统、QP 和 Lyapunov/ISS 基础。AI 估计。",
+      "visual_idea": "教学示意：上下两条时间线分别画 plant 状态和优化残差，每个采样周期只亮起有限个迭代格；对照不同迭代预算下两者的相互影响。收敛轨迹需注明示意及条件，不虚构 AMR 实测或通用稳定性保证。",
+      "history_status": "当前 reading-index.json 未发现该 ID、标题或 arXiv URL；与昨日 robust NMPC、此前 predictive safety filter 是不同论文。索引外是否讨论过未知。",
+      "evidence_checked": "核对 arXiv 作者及 v2（2021-02-24），读原文 Fig. 1、II、III、IV 的入口与适用系统。CU Boulder 作者机构页确认 2022 年 TAC 67(5)、2618–2625 和 DOI；IEEE 出版方检索记录确认 online 2021-06-03，ETH 机构库亦标为 published。IEEE 正文直开受限，使用开放作者稿核对方法。未找到可确认归属本篇的官方代码/项目仓库；完整证明、数值例子和实际每步耗时尚待精读或复现。",
+      "verified_on": "2026-10-30T16:36:33+00:00",
+      "paper_version": "开放作者稿 arXiv:2009.12294v2, 2021-02-24；正式卷期 2022，online 2021",
+      "verification_sources": [
+        {
+          "url": "https://arxiv.org/abs/2009.12294v2",
+          "supports": "标题、全体作者和作者稿版本"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2009.12294v2",
+          "supports": "Fig. 1、II–IV；输入约束线性 MPC 与有限优化迭代的稳定性问题"
+        },
+        {
+          "url": "https://experts.colorado.edu/display/pubid_326601",
+          "supports": "TAC 2022 卷期、页码、作者、DOI"
+        },
+        {
+          "url": "https://ieeexplore.ieee.org/abstract/document/9446633",
+          "supports": "出版方检索记录中的 online 日期和卷期；直开受限"
+        },
+        {
+          "url": "https://www.research-collection.ethz.ch/entities/publication/1510477e-9298-4b34-bfad-a83834be57be",
+          "supports": "作者机构库标注 published、期刊卷页及 DOI"
+        }
+      ]
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "继续 UMI · 两夹爪如何共享空间关系",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) XX, 2024；正式论文 p045",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329v3",
+      "source_url": "https://roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "recommendation": "继续已有精读，不需要换论文。今天建议聚焦 OpenArm 双臂夹爪的相对位姿：两只腕部相机分别看局部，策略仍需要知道两手的空间关系。与前一天的时序入口不同，可直接读双臂折衣消融。该建议由 AI 提出，不代表你已经读到这里；选中后复用已登记的 UMI 任务。",
+      "one_question": "两只手各自都有图像和轨迹，为什么还要给策略两夹爪之间的相对位姿？",
+      "start_here": "arXiv v3 的 III-B：PD2.3 Relative inter-gripper proprioception 及其中的 map-then-localize 说明；需要时回看 III-A 的 HD4 IMU-aware tracking。再读 V-C Bimanual Cloth Folding 及 Fig. 8(b) 的去掉相对位姿消融，区分“单臂相对动作表示”和“双夹爪相对状态”。",
+      "reading_estimate": "聚焦这一个机制与消融约 20–30 分钟，可继续多天；无需重读已有整篇 AI 笔记。AI 估计。",
+      "visual_idea": "教学示意：左右两只夹爪各自的局部坐标框同时出现，再连出一条相对位姿关系；用抓衣物下摆说明协调所需的信息。它是论文机制示意，不代表已在 OpenArm 复现。",
+      "history_status": "已于 2026-10-25 选择，10-25 至 10-29 共推荐 5 次；阅读中，用户笔记 0 条、AI 说明 1 条、未确认读完。已有任务“UMI：论文精读与视频”，ID private-thread-id-redacted。此次只保留续读选项，不新增选择、不复制长笔记。",
+      "evidence_checked": "2026-10-30 复核 RSS 官方 proceedings 的题目、作者与正式收录，arXiv v3（2024-03-06）及作者项目/代码入口。读 III-B PD2.3 和 V-C 的相对夹爪位姿与消融描述，核对实际入口；索引与单篇 PROGRESS 用于进度核实，没有加载旧聊天。OpenArm 适配、原始统计和所有消融条件仍需精读，不把 AI 解释当用户掌握或复现。",
+      "verified_on": "2026-10-30T16:36:33+00:00",
+      "paper_version": "arXiv:2402.10329v3, 2024-03-06；RSS 2024 正式 proceedings p045",
+      "canonical_notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+      "existing_thread_id": "private-thread-id-redacted",
+      "verification_sources": [
+        {
+          "url": "https://roboticsproceedings.org/rss20/p045.html",
+          "supports": "RSS 正式出版状态、题目与作者"
+        },
+        {
+          "url": "https://arxiv.org/abs/2402.10329v3",
+          "supports": "版本历史"
+        },
+        {
+          "url": "https://arxiv.org/html/2402.10329v3",
+          "supports": "III-B PD2.3、V-C、Fig. 8(b) 阅读入口"
+        },
+        {
+          "url": "https://umi-gripper.github.io/",
+          "supports": "作者项目页与官方代码入口"
+        },
+        {
+          "url": "https://github.com/real-stanford/universal_manipulation_interface",
+          "supports": "官方实现存在；本次未运行"
+        }
+      ]
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-30T16:36:33+00:00"
+    }
+  ]
+}

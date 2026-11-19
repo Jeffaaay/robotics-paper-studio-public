@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-13",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "irp-ijrr-2024",
+      "display_name": "IRP · 用上一次结果修正下一次动作",
+      "title": "Iterative residual policy: For goal-conditioned dynamic manipulation of deformable objects",
+      "authors": "Cheng Chi; Benjamin Burchfiel; Eric Cousineau; Siyuan Feng; Shuran Song",
+      "year": 2024,
+      "venue": "The International Journal of Robotics Research 43(4):389–404；2023-09-07 首次在线发表；前身为 RSS 2022",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://journals.sagepub.com/doi/10.1177/02783649231201201",
+      "source_url": "https://journals.sagepub.com/toc/ijra/43/4",
+      "code_url": "https://github.com/real-stanford/irp",
+      "recommendation": "首选。为 OpenArm 叠衣补上一个可讨论的控制思路：观察一次动作的结果，再调整下一次动作。它适合研究可重复尝试的布料摆放；迁移到 T-shirt 多步折叠仍是待验证设想。布料实验仅为仿真，真实实验是甩绳类任务；不能当作双臂实机叠衣成功证据。",
+      "one_question": "上一轮布料落点偏了，怎样用观测轨迹和小幅动作变化，选择下一轮修正？",
+      "start_here": "按 IJRR 版编号：先读 §3.2 / Fig. 3 理解布料任务与动作参数；再读 §4、Algorithm 1、§4.1–4.2 理解 delta dynamics 与候选动作采样；接着读 §6 的仿真比较。最后读 §7、§9：局部最优、动作可重复、全程可观测，以及只能在整次动作结束后修正的限制。",
+      "reading_estimate": "AI 估计：入口 25–35 分钟；方法、实验与限制约 70–100 分钟。",
+      "visual_idea": "教学示意：显示一次落点偏差，展开几个候选微调轨迹，选一个再执行；明确按轮次更新，不画成运动中实时纠偏。仅在选读和用户笔记到位后制作。",
+      "history_status": "按今日运行前的阅读索引，以题名、IRP、arXiv 2203.00663 与 DOI 去重，未见推荐或登记讨论；不据此断言用户从未读过。",
+      "evidence_checked": "核对 SAGE 期刊全文 §3–7、§9 和当期目录的作者、卷期、页码、发表日期与 DOI 10.1177/02783649231201201；核对作者 GitHub README。原项目站本次返回 404，故阅读入口采用可访问的期刊全文。arXiv 2203.00663v2 是 2022 年版本，不冒充 IJRR 最终版；代码标注 RSS 2022，未运行或核实与期刊新增实验完全一致。当前为推荐核验，公式、消融和复现细节待选读。",
+      "verified_on": "2026-11-13T09:04:04-08:00"
+    },
+    {
+      "id": "pmpsc-tac-2022",
+      "display_name": "PMPSC · 不确定性下的概率安全约束",
+      "title": "Probabilistic Model Predictive Safety Certification for Learning-Based Control",
+      "authors": "Kim P. Wabersich; Lukas Hewing; Andrea Carron; Melanie N. Zeilinger（按所读作者稿署名）",
+      "year": 2022,
+      "venue": "IEEE Transactions on Automatic Control 67(1):176–188，2022 年 1 月；DOI 10.1109/TAC.2021.3049335",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/html/1906.10417v2",
+      "source_url": "https://doi.org/10.1109/TAC.2021.3049335",
+      "recommendation": "AMR 备选。接着已有安全过滤器候选，专门分清概率约束、保守程度和可持续的备用控制。论文用随机误差管收紧约束，再检查通往终端安全集的路径；这里的保证是各时刻的 chance constraints，不等于整段任务零事故，也不直接覆盖硬件故障或任意时延。",
+      "one_question": "名义轨迹没有越界，为什么还要给误差留一条管道；概率满足约束又保证了什么？",
+      "start_here": "作者稿 v2：先读 §III-B / Eq. (4) 的概率定义，再看 Fig. 1 和 §IV-B / Eq. (6)、(8)。读 Assumptions III.1、IV.3–IV.4 与 Theorem IV.5，检查初始可行性、模型误差、概率管及终端集条件；随后读 §VI / Figs. 4–6 的汽车仿真。§V 的数据建模推导可留第二轮。",
+      "reading_estimate": "AI 估计：图与问题定义 25–35 分钟；需 MPC、概率与集合运算基础的精读约 90–120 分钟，可分两天。",
+      "visual_idea": "教学示意：同一条中心线加上误差管后触到路界，再显示收紧后的可行路径与终端集；用少量样本说明概率含义，不伪造实测成功率。",
+      "history_status": "按今日运行前索引，以题名、PMPSC、arXiv 1906.10417 与 DOI 去重，未见本篇；与此前确定性预测安全过滤器候选属于不同论文。是否在未登记场合读过未知。",
+      "evidence_checked": "原文核查使用 arXiv 1906.10417v2（2021-01-18），包含条件与汽车数值实验；未做 AMR 实机验证。IEEE 页面本次要求浏览器验证，卷期页码与 DOI 用出版方提交的 Crossref 记录核实（https://api.crossref.org/works/10.1109/TAC.2021.3049335）；其第一作者字段显示 Henk J. Wabersich，与作者稿 Kim P. Wabersich 不同，本卡保留所读稿署名并记录差异。未逐页比对出版终版；未核实本篇专属公开代码。定理推导、实验数值与版本差异留待选读。",
+      "verified_on": "2026-11-13T09:04:04-08:00"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "继续 UMI · 相对轨迹与逐步增量",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024；DOI 10.15607/RSS.2024.XX.045",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://www.roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "recommendation": "续读备选。你已选过 UMI，尚未确认读完；可以接着把动作表示讲透。先从采集、动作标签、训练与部署的关系补齐概念，再区分相对同一起点的轨迹和逐步 delta action，之后连接双臂相对位姿。保留你对讲解过于跳跃的反馈。",
+      "one_question": "都叫“相对动作”，为什么相对同一起点的整段轨迹，与每一步相对前一步的增量不同？",
+      "start_here": "v3：先回看 Fig. 2、Fig. 5(b) 的数据到策略流程；接 Fig. 6 和 §III-B PD2.1–PD2.2；再读 PD2.3 与 §V-C，区分单臂动作坐标和两夹爪空间关系。逐步说明再讨论，不把已有 AI 解释当成掌握；OpenArm 适配仍需实测。",
+      "reading_estimate": "AI 估计：本轮 30–45 分钟，按实际疑问继续补基础；不要求今天读完全篇。",
+      "visual_idea": "教学示意：同样三个目标点，分别画相对同一参考位姿和逐步参考；再加入两只夹爪，区分各自动作与彼此位置关系。",
+      "history_status": "已选、阅读中。索引记录 0 条用户研究笔记、3 条 AI 说明；存在讲解深度反馈，实际阅读位置与理解程度未知。选续读时先复核 registry，再返回原任务 UMI：论文精读与视频（private-thread-id-redacted），不新建重复任务。",
+      "evidence_checked": "重新核对 RSS 2024 作者、题名与发表记录，arXiv v3 的 Fig. 6、III-B PD2.1–PD2.3 和作者项目页；本地只读 UMI PROGRESS 与 registry，长笔记沿用 https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md 。此处是续读入口，未宣称新增精读、用户理解或 OpenArm 复现。",
+      "verified_on": "2026-11-13T09:04:04-08:00"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-13T17:05:24+00:00"
+    }
+  ]
+}

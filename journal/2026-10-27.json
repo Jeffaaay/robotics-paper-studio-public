@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-27",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "flingbot-corl-2021",
+      "display_name": "FlingBot",
+      "title": "FlingBot: The Unreasonable Effectiveness of Dynamic Manipulation for Cloth Unfolding",
+      "authors": "Huy Ha, Shuran Song",
+      "year": 2022,
+      "venue": "Conference on Robot Learning (CoRL) 2021；论文集 PMLR 164:24–33 于2022年出版",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2105.03655v3",
+      "source_url": "https://flingbot.cs.columbia.edu/",
+      "publication_url": "https://proceedings.mlr.press/v164/ha22a.html",
+      "recommendation": "今日新首选：研究从揉乱布料到展开状态，补上 OpenArm 叠衣前的环节。可先学习动作原语如何影响任务难度；是否适用于 OpenArm 的速度、行程和夹持条件需要另行验证。",
+      "one_question": "为什么动态甩动可能比反复抓放更有效地展开布料？",
+      "visual_idea": "用简洁布料示意比较局部抓放和双手抓起、拉伸、甩开的过程，标出展开面积变化；不把示意动作次数冒充论文实测，也不把覆盖率当作最终折叠质量。",
+      "start_here": "先看引言的 unfolding 任务定义与作者项目页动作演示，再读方法中的 pick–stretch–fling 动作原语和 delta-coverage 自监督信号，最后分开核对仿真与真实机器人实验。",
+      "reading_estimate": "45–60分钟首轮方法与关键对照；仿真、实机设置和限制可继续精读。",
+      "history_status": "现有日记与长期笔记索引未记录这篇作为独立选读；与已有 Unfolding Robotics 和 UMI 讨论相关，尚未确认用户读过。",
+      "evidence_checked": "2026-10-27 核对 PMLR 官方题目、作者、页码与2022论文集；作者项目页及 arXiv v3 核对 CoRL 2021、动作原语、任务目标和覆盖率监督概览。仅做推荐所需核查，未完整精读实验、未复现。",
+      "verified_on": "2026-10-27"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "UMI（继续阅读）",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329v3",
+      "source_url": "https://umi-gripper.github.io/",
+      "notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+      "continuation_of": "2026-10-25",
+      "recommendation": "继续已选论文的选项：复用10月25日的完整精读讲解，今天可集中理解相对轨迹和双臂空间关系，接到 OpenArm 两只夹爪的配合。",
+      "one_question": "相对同一个起点预测整段轨迹，和每一步只预测增量，有什么不同？",
+      "visual_idea": "同一条末端轨迹用固定起点的相对目标与逐步增量并排表示；展示误差传播的教学例子，避免暗示相对轨迹消除了全部误差。",
+      "start_here": "正文 III-B 的 PD2 与图6，随后看 V-C 双臂叠衣。已有中文精读笔记可从10月25日阅读卡打开；无需重读整篇再提问。",
+      "reading_estimate": "20–30分钟复习相对轨迹，并写自己的一个解释或疑问。",
+      "history_status": "2026-10-25 用户已选，AI精读讲解已保存；26日提供过继续选项。没有新增用户笔记或完成确认，今天保留继续入口，不自动记为已读。",
+      "evidence_checked": "2026-10-27 复核作者项目页的 RSS 2024 发表信息和相对轨迹概览；具体正文、附录与代码的精读核查沿用2026-10-25记录，未做实机复现。",
+      "verified_on": "2026-10-27"
+    },
+    {
+      "id": "predictive-safety-filter-automatica-2021",
+      "display_name": "Predictive Safety Filter",
+      "title": "A predictive safety filter for learning-based control of constrained nonlinear dynamical systems",
+      "authors": "Kim P. Wabersich, Melanie N. Zeilinger",
+      "year": 2021,
+      "venue": "Automatica 129, 109597 (2021)",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/1812.05506v4",
+      "source_url": "https://www.sciencedirect.com/science/article/abs/pii/S0005109821001175",
+      "publication_url": "https://doi.org/10.1016/j.automatica.2021.109597",
+      "recommendation": "AMR控制与恢复方向的新备选：理解怎样检查候选动作是否保留未来可行的安全路径，并在需要时修正动作。与已有 GP/MPC 讨论互补；应用到自己的底盘属于后续工程推论。",
+      "one_question": "一个动作眼前没有越界，为什么仍可能需要被改掉？",
+      "visual_idea": "小车的候选轨迹眼前仍在边界内，却让后续制动失去余地；加入通向安全状态的备份轨迹后筛选动作。标明教学示意，安全结论须连同模型、终端集合和概率条件说明。",
+      "start_here": "先看图2与4.1节 Nominal (simplified) predictive safety filter，再读4.2节怎样处理不确定性；随后核对第3节假设和第5节数值实验。",
+      "reading_estimate": "60–90分钟首轮机制；安全证明与概率条件可分次阅读。",
+      "history_status": "已有 RC-LB-NMPC 笔记，26日推荐过 Cautious GP-MPC；现有记录未把这篇作为独立选读或确认已读。",
+      "evidence_checked": "2026-10-27 用出版方与ETH机构记录核实两位作者、Automatica 129、文章号109597和2021-07发表；arXiv v4目录及图2/4.1相关文字核对备份轨迹机制和阅读入口。尚未完整精读证明或核对实验数值；不称其为AMR实机复现。",
+      "verified_on": "2026-10-27"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-28T00:13:32+00:00"
+    }
+  ]
+}

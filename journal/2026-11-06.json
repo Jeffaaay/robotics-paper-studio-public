@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-06",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "self-triggered-mpc-tac-2017",
+      "display_name": "Self-triggered MPC · 何时重新计算控制",
+      "title": "Self-Triggered Model Predictive Control for Nonlinear Input-Affine Dynamical Systems via Adaptive Control Samples Selection",
+      "authors": "Kazumune Hashimoto; Shuichi Adachi; Dimos V. Dimarogonas",
+      "year": 2017,
+      "venue": "IEEE Transactions on Automatic Control 62(1):177–189, January 2017；DOI 10.1109/TAC.2016.2537741",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/pdf/1603.03677v1",
+      "source_url": "https://keio.elsevierpure.com/en/publications/self-triggered-model-predictive-control-for-nonlinear-input-affin/",
+      "paper_version": "arXiv:1603.03677v1，2016-03-11，公开作者稿；正式期刊卷期为 2017，不能把预印本年份当成期刊年份。",
+      "recommendation": "今天首选，直接对应 AMR 的控制时序：一次 MPC 求解之后，怎样把连续控制计划变成有限个保持执行的样本，并提前决定下次何时通信、重算？论文有非完整约束小车仿真，适合把求解频率、指令切换和网络传输三个时钟分清。它提供有条件的稳定性分析；移植到你的 AMR 仍需验证模型、延迟界和约束，本文没有实机避障或故障恢复验证。",
+      "one_question": "同样只传几个控制样本，为什么采样时刻的安排会改变下一次必须重算的时间？",
+      "start_here": "公开 v1：先看 Fig. 1、Fig. 3 与 Section II，分清连续最优输入和 sample-and-hold；再读 III 的式 (18)–(20)、IV 的 Fig. 4 与 Algorithm 2。随后看 Remark 4 的式 (27) 延迟预算、Remark 5 的扰动扩展，以及 VI-B/Figs. 11–14 的小车仿真。最后再回查 Assumptions 1–3 和 Section V 的证明。",
+      "reading_estimate": "13 页、数学负担较高；先读机制和小车例子约 35–45 分钟，含假设与推导约 90–120 分钟，可分两次。",
+      "visual_idea": "教学示意：同一条连续输入曲线叠加两套分段保持样本；显示预测误差上界接近触发阈值后重新求解。标出 transmission 与 sample switch 的区别，不画成经过验证的 AMR 安全演示。",
+      "history_status": "按阅读索引的 ID、完整标题及 arXiv 标识去重，未发现既有候选或专属讨论登记；既有长期笔记目录未标明本篇，不能据此断言从未接触。",
+      "evidence_checked": "2026-11-06 核对 Keio 作者机构页面的作者、同行评审状态、卷期页码与 DOI，并查公开 v1 及 KTH 作者稿的上述原文入口。主要证据是 MATLAB/SNOPT 仿真；基本推导依赖模型/Lipschitz 界、输入变化率约束与局部终端控制器。延迟扩展要求已知总延迟上界，且触发间隔小于预测时域减该上界；扰动扩展也需有效界。没有核实到本篇专属公开代码入口，未运行复现；证明细节和实验参数留待选中后精读。",
+      "evidence_sources": [
+        {
+          "url": "https://keio.elsevierpure.com/en/publications/self-triggered-model-predictive-control-for-nonlinear-input-affin/",
+          "checked": "作者机构的期刊发表、同行评审与书目信息"
+        },
+        {
+          "url": "https://arxiv.org/abs/1603.03677",
+          "checked": "作者、版本与提交记录"
+        },
+        {
+          "url": "https://arxiv.org/pdf/1603.03677v1",
+          "checked": "Sections II–VI，式 18–20、27，Algorithms 1–2，Remarks 4–5，非完整约束小车仿真"
+        },
+        {
+          "url": "https://people.kth.se/~dimos/pdfs/TAC16_Kazu_prepr.pdf",
+          "checked": "作者托管原稿及方法结构交叉核对"
+        }
+      ],
+      "verified_on": "2026-11-06T14:38:12-08:00"
+    },
+    {
+      "id": "visual-feedback-folding-iros-2022",
+      "display_name": "Visual Feedback Folding · 边看边调整折布动作",
+      "title": "Learning Visual Feedback Control for Dynamic Cloth Folding",
+      "authors": "Julius Hietala; David Blanco-Mulero; Gökhan Alcan; Ville Kyrki",
+      "year": 2022,
+      "venue": "IROS 2022, pp. 1455–1462；DOI 10.1109/IROS47612.2022.9981376",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2109.04771v3",
+      "source_url": "https://research.aalto.fi/en/publications/learning-visual-feedback-control-for-dynamic-cloth-folding/",
+      "project_url": "https://sites.google.com/view/dynamic-cloth-folding",
+      "code_url": "https://github.com/hietalajulius/dynamic-cloth-folding",
+      "paper_version": "arXiv:2109.04771v3，2022-08-07；首次预印本为 2021，会议发表为 IROS 2022，机构记录上线日期为 2022-12-26。",
+      "recommendation": "对应 OpenArm 叠衣中一个具体问题：换一种软硬程度的布，固定动作为什么可能失效？本篇把视觉反馈与布料物理属性随机化放进训练，再转移到真实机械臂，可用于思考何时需要在动作过程中观察。实验是单臂 Panda 对已抓住、铺平的方布做动态折叠；双臂 T-shirt、多步折叠及 OpenArm 控制器适配都还需另行验证。",
+      "one_question": "为什么只有视觉反馈还不够，训练时还要让策略经历不同布料动力学？",
+      "start_here": "v3 的 Fig. 2 和 III-B/Fig. 3：先认清已抓住的单点、自由布角和任务终点；再读 IV-B 的控制器匹配与布料参数筛选，最后对照 V-A 基线和 VI-B/Figs. 5–7。重点区分固定轨迹、仅视觉反馈、视觉反馈加动力学随机化；图中的布角距离误差不能当作整件衣服的成功率。",
+      "reading_estimate": "8 页；机制和实验约 30–40 分钟，加入 RL 训练与 sim-to-real 细节约 60–90 分钟。",
+      "visual_idea": "教学示意：两块不同软硬的方布接受相同初始动作，自由角偏离目标；以图像反馈调整后续动作。另用简短对照表示训练见过的材料变化，避免把一次示意动画包装成实测效果。",
+      "history_status": "按索引 ID、完整标题及 arXiv 2109.04771 去重，未发现既有候选或专属讨论登记；与之前的轨迹优化、铺平和数据集论文是不同方法。",
+      "evidence_checked": "2026-11-06 核对 Aalto 机构的同行评审记录、作者、会议、页码及 DOI；阅读 v3 的任务设定、控制器/随机化设计、真实实验比较和限制。原文指出仅视觉反馈不足以跨所测材料稳定奏效，且仍对光照和相机位置敏感。没有抓取规划或从揉皱衣物开始的整套系统评估。项目页与作者代码 README 已核对：公开仓库提供仿真训练，真实部署说明需联系作者；未下载或运行代码。尚未精读全部超参数与统计细节。",
+      "evidence_sources": [
+        {
+          "url": "https://research.aalto.fi/en/publications/learning-visual-feedback-control-for-dynamic-cloth-folding/",
+          "checked": "正式发表信息与同行评审状态"
+        },
+        {
+          "url": "https://arxiv.org/abs/2109.04771",
+          "checked": "v3 日期与作者"
+        },
+        {
+          "url": "https://arxiv.org/html/2109.04771v3",
+          "checked": "III-B、IV-B、V、VI-B；预抓取初态、单臂方布、基线与光照/相机限制"
+        },
+        {
+          "url": "https://sites.google.com/view/dynamic-cloth-folding",
+          "checked": "作者项目、原论文和代码入口"
+        },
+        {
+          "url": "https://github.com/hietalajulius/dynamic-cloth-folding/blob/main/README.md",
+          "checked": "公开训练代码与真实 Panda/D435 部署说明的边界"
+        }
+      ],
+      "verified_on": "2026-11-06T14:38:12-08:00"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "UMI · 继续已有精读",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024；DOI 10.15607/RSS.2024.XX.045",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://www.roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "paper_version": "arXiv:2402.10329v3，2024-03-06；正式发表 RSS 2024。",
+      "recommendation": "也可以继续已选的 UMI，不必为了每日推荐换论文。沿用你此前希望更完整讲解的反馈，先补齐手持示范、动作标签、策略预测和机器人执行之间的因果关系，再看相对轨迹；这对 OpenArm 双臂示范采集最直接。已有 AI 解释不代表你已读懂，实际阅读位置和当前疑问仍以你的回复为准。",
+      "one_question": "同一段动作都相对同一个起点，和每一步相对前一步，为什么不是一回事？",
+      "start_here": "先从你当前疑问继续；若需要建议入口，按 III-A/III-B 串起采集→标签→策略→执行，再读 III-B 的 PD2.1、PD2.2 与 Fig. 6。必要时回看 Fig. 5 的时间对齐，不在前置概念不清时直接跳到公式或自测。",
+      "reading_estimate": "本轮建议 30–45 分钟，只推进当前卡点；不是要求今天重新通读全文。",
+      "visual_idea": "教学示意：同一串目标点采用固定起点坐标与逐步增量坐标，展示表示方式及误差传播的区别；选中并有你的实际笔记后再决定是否制作。",
+      "history_status": "已于 2026-10-25 选读，专属任务 UMI：论文精读与视频（private-thread-id-redacted）；当前未确认读完。已读短 PROGRESS，保留原选择和此前讲解深度反馈。今天列为明确的续读选项；选择后再次查 registry 并返回原任务。长笔记继续使用 robotics-research-notes/umi/README.md。",
+      "evidence_checked": "2026-11-06 重查 RSS 正式 proceedings、arXiv v3、项目与代码入口，以及 III-B PD2.1/PD2.2、Fig. 6 对固定参考起点相对轨迹的定义。OpenArm 的跟踪、双臂关系、可达性和延迟仍需实测；本次只核实续读入口，未记录新的用户理解、笔记、完成或审核。",
+      "evidence_sources": [
+        {
+          "url": "https://www.roboticsproceedings.org/rss20/p045.html",
+          "checked": "正式 RSS 2024 发表信息、作者及 DOI"
+        },
+        {
+          "url": "https://arxiv.org/abs/2402.10329",
+          "checked": "v3 版本记录"
+        },
+        {
+          "url": "https://arxiv.org/html/2402.10329v3",
+          "checked": "III-B PD2.1/PD2.2 与 Fig. 6 续读定义"
+        },
+        {
+          "url": "https://umi-gripper.github.io/",
+          "checked": "作者项目与官方代码入口"
+        }
+      ],
+      "verified_on": "2026-11-06T14:38:12-08:00"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-06T22:39:38+00:00"
+    }
+  ]
+}

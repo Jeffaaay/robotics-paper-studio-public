@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "papers": {
+    "umi-2024": {
+      "title": "UMI：论文精读与视频",
+      "thread_id": "private-thread-id-redacted",
+      "host_id": "local",
+      "previous_thread_ids": [],
+      "selection_journal": "journal/2026-10-25.json",
+      "progress_path": "papers/umi-2024/PROGRESS.md",
+      "canonical_notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+      "paper_url": "https://arxiv.org/abs/2402.10329"
+    }
+  }
+}

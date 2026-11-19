@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-01",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "umi-2024",
+      "display_name": "UMI · 继续读",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/pdf/2402.10329v3",
+      "source_url": "https://www.roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "paper_version": "arXiv:2402.10329v3, 2024-03-06；发表状态另以 RSS 2024 论文集核实",
+      "recommendation": "首选续读。你已经选过 UMI，也明确说过讲解跳过太多细节；今天优先补齐采集、动作标签、策略输入输出与执行之间的连接，再进入相对轨迹。它同时贴近 OpenArm 双臂示范和你关心的控制时序。此前的 AI 解释不代表你已经理解。",
+      "one_question": "同一段手部运动，为什么按固定起点表示 relative trajectory，与逐步累加 delta action 不一样？",
+      "start_here": "先对照 Fig. 1–2 和 III-A 说清楚人记录了什么、机器人学什么；再读 III-B 开头、PD2.1–PD2.2 与 Fig. 6。先解释 pose、参考坐标系、action horizon，再比较三种表示；最后联系 V-C 双臂叠衣。沿用尚未完成的阅读入口，从你的具体疑问继续。",
+      "reading_estimate": "约 30–45 分钟补全这条链；需要时分两次，不要求今天读完整篇。估计由 AI 给出。",
+      "visual_idea": "教学示意：同一条夹爪路径分别相对全局坐标、固定起点和上一步动作表达；给中间一步加入误差，观察后续目标如何变化。此处仅记录选题，不制作成片。",
+      "history_status": "已有讨论，未确认读完。2026-10-25 已选择；最近实质进度为 2026-10-31。用户研究笔记 0 条、AI 说明 3 条。既有任务 UMI：论文精读与视频（private-thread-id-redacted）；若选续读，先复查 registry 后返回原任务。",
+      "evidence_checked": "已核对 RSS 论文集的题目、作者、年份，以及 arXiv v3 的 III-A、III-B PD2.1–PD2.3、Fig. 6 图注和作者项目/代码入口。固定起点的相对轨迹与逐步增量是不同定义；这不构成 OpenArm 跟踪或叠衣性能保证。推荐核查不是新增精读或硬件复现；具体疑问仍须回查原文。",
+      "verified_on": "2026-11-01T09:02:43-08:00",
+      "source_checks": [
+        {
+          "url": "https://www.roboticsproceedings.org/rss20/p045.html",
+          "role": "正式会议题录"
+        },
+        {
+          "url": "https://arxiv.org/abs/2402.10329",
+          "role": "作者与版本历史"
+        },
+        {
+          "url": "https://arxiv.org/html/2402.10329v3",
+          "role": "全文阅读入口与方法核查"
+        },
+        {
+          "url": "https://umi-gripper.github.io/",
+          "role": "作者项目及代码链接"
+        }
+      ]
+    },
+    {
+      "id": "learning-mpc-tac-2018",
+      "display_name": "Learning MPC · 重复任务",
+      "title": "Learning Model Predictive Control for Iterative Tasks. A Data-Driven Control Framework",
+      "authors": "Ugo Rosolia, Francesco Borrelli",
+      "year": 2018,
+      "venue": "IEEE Transactions on Automatic Control 63(7):1883–1896, July 2018",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/pdf/1609.01387v7",
+      "source_url": "https://sites.google.com/berkeley.edu/lmpc/home",
+      "project_url": "https://sites.google.com/berkeley.edu/lmpc/home",
+      "code_url": "https://github.com/urosolia/LMPC",
+      "paper_version": "arXiv:1609.01387v7, 2017-12-14；期刊卷期为 2018，二者年份不同",
+      "recommendation": "备选一，偏 AMR 控制理论。适合研究重复运输路线怎样利用过去成功轨迹，构造终端集合与 cost-to-go。可与前几天的安全过滤/MPC 候选区分：重点是重复任务中的经验利用。这里的 safe set 有明确假设，不能直接当作故障恢复方案。",
+      "one_question": "只向前规划 N 步，为什么把终点接到一条已成功轨迹上，能帮助保证后面仍有路可走？",
+      "start_here": "先读 II 的任务假设，再读 II-A Sampled Safe Set、II-B 的 cost-to-go 定义；对照 III-A 式 (23) 的终端约束和 Assumption 1。理解后再读 III-B 的可行性结论与 V 的 Dubins car 示例，证明可分次读。",
+      "reading_estimate": "约 40–60 分钟理解构造；完整定理与证明另需 1–2 次。需要基本离散系统、MPC、约束优化知识；估计由 AI 给出。",
+      "visual_idea": "教学示意：旧的成功路径留下离散状态点，新规划的短路径接到其中一个点，再沿可行后缀到终点。点旁显示剩余代价；不把离散集合画成已证明安全的连续区域。",
+      "history_status": "本次按阅读索引的 ID、题名与 arXiv 编号去重，未见推荐/选择/讨论记录；START_HERE 列出的既有长笔记目录也未列出此题。未建立论文专属任务；不据此声称用户从未在其他地方读过。",
+      "evidence_checked": "作者实验室页面确认 TAC 63(7)、1883–1896、2018；arXiv v7 核对 II、III-A/Assumption 1、数值示例与计算负担讨论。基本保证依赖可行初始轨迹、模型及重复任务条件；任意扰动、动态障碍与通信延迟不在此自动保证内。原文有离散终端集合带来的混合整数计算负担；未复核全部证明或运行代码。IEEE 直连本次不可访问，发表信息由作者实验室题录交叉核对。",
+      "verified_on": "2026-11-01T09:02:43-08:00",
+      "source_checks": [
+        {
+          "url": "https://sites.google.com/berkeley.edu/lmpc/home",
+          "role": "作者实验室期刊题录"
+        },
+        {
+          "url": "https://arxiv.org/abs/1609.01387",
+          "role": "作者与 v7 历史"
+        },
+        {
+          "url": "https://arxiv.org/pdf/1609.01387v7",
+          "role": "原文方法、假设及计算限制"
+        },
+        {
+          "url": "https://github.com/urosolia/LMPC",
+          "role": "作者示例代码，README 为 Python 2.7 时代环境；未运行"
+        }
+      ]
+    },
+    {
+      "id": "foldsformer-ral-2023",
+      "display_name": "Foldsformer · 多步叠衣",
+      "title": "Foldsformer: Learning Sequential Multi-Step Cloth Manipulation With Space-Time Attention",
+      "authors": "Kai Mo, Chongkun Xia, Xueqian Wang, Yuhong Deng, Xuehai Gao, Bin Liang",
+      "year": 2023,
+      "venue": "IEEE Robotics and Automation Letters 8(2):760–767, February 2023",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/pdf/2301.03003v1",
+      "source_url": "https://arxiv.org/abs/2301.03003",
+      "project_url": "https://sites.google.com/view/foldsformer",
+      "code_url": "https://github.com/Murkey8895/foldsformer",
+      "paper_version": "arXiv:2301.03003v1, 2023-01-08；作者稿标注 2022-12-09 接收，正式卷期为 2023",
+      "recommendation": "备选二，偏 OpenArm 的叠衣任务设计。先研究怎样用一组子目标图表达折叠顺序，再考虑双臂执行。论文真实实验用单臂 Franka Panda，可借鉴任务表示与失败分析；双臂协调仍需另行设计和验证。",
+      "one_question": "衣物最后看起来相似时，为什么完整的 sub-goal sequence 可能比只给一张目标图更有用？",
+      "start_here": "Fig. 1 建立任务概念 → III-A 任务/动作定义 → III-B 与 Fig. 2 的当前深度图、子目标序列、pick/place heatmap。随后读 IV-B 的 NoTimeAttn 消融、IV-C–D 真实实验和 V 的抓错布层等限制。",
+      "reading_estimate": "8 页；约 30–45 分钟读框架、证据与失败案例，attention 细节可再用一轮。估计由 AI 给出。",
+      "visual_idea": "教学示意：把多步折叠的子目标图排成序列，当前衣物匹配到相应阶段后给出下一次 pick/place；用一帧说明仅有最终轮廓会丢失被遮挡的折叠信息。",
+      "history_status": "本次按阅读索引的 ID、题名与 arXiv 编号去重，未见推荐/选择/讨论记录；既有长笔记目录未列出此题。未建立论文专属任务。",
+      "evidence_checked": "已核对作者 arXiv 题录、接收稿首页、项目和代码仓库；确认 RA-L 2023 卷期与 2022 接收时间。原文 III、IV、V 支持方法入口、时序消融和单臂实验范围。真实实验表 II 报告 MIoU/皱褶指标，不把它写成任务成功率；抓取布层、可达性、背景分割和专家子目标仍有限制。推荐阶段未复核全部实验或复现。",
+      "verified_on": "2026-11-01T09:02:43-08:00",
+      "source_checks": [
+        {
+          "url": "https://arxiv.org/abs/2301.03003",
+          "role": "作者、版本、期刊卷期、DOI"
+        },
+        {
+          "url": "https://arxiv.org/pdf/2301.03003v1",
+          "role": "接收稿首页、方法、消融、真实实验与限制"
+        },
+        {
+          "url": "https://sites.google.com/view/foldsformer",
+          "role": "作者项目与硬件设置"
+        },
+        {
+          "url": "https://github.com/Murkey8895/foldsformer",
+          "role": "作者代码与期刊 BibTeX"
+        }
+      ]
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-01T17:04:15+00:00"
+    }
+  ]
+}

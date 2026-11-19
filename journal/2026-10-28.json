@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-28",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "speedfolding-iros-2022",
+      "display_name": "SpeedFolding",
+      "title": "SpeedFolding: Learning Efficient Bimanual Folding of Garments",
+      "authors": "Yahav Avigal, Lars Berscheid, Tamim Asfour, Torsten Kröger, Ken Goldberg",
+      "year": 2022,
+      "venue": "2022 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2208.10552v2",
+      "source_url": "https://pantor.github.io/speedfolding/",
+      "publication_url": "https://doi.org/10.1109/IROS47612.2022.9981402",
+      "recommendation": "今日新首选：从揉乱衣物的铺平接到按用户提供折线进行折叠，直接对应 OpenArm 叠衣任务的分阶段设计。重点看成对末端位姿和动作原语如何配合；论文的平台性能不能直接当作 OpenArm 的预期结果。",
+      "one_question": "为什么两只夹爪各自选到不错的抓点，组合起来却可能不合适？",
+      "visual_idea": "同一件衣物上比较独立选择的两个抓点与按协作动作成对选择的抓点，再用少量箭头展示拉伸或折叠方向。仅做教学示意，不复刻未经核查的成功率。",
+      "start_here": "先读 IV-A Action Primitives 和 IV-B BiMaMa-Net，再看 IV-E Folding Pipeline；随后核对 V-C Folds per Hour 的计时口径与 V-E System Limitations。",
+      "reading_estimate": "45–60分钟首轮方法和系统流程；完整实验条件与误差分析另留时间。",
+      "history_status": "现有日记中尚未推荐或选定这篇；与10月27日的 FlingBot 候选及已有 OpenArm 叠衣路线相关，未确认用户读过。",
+      "evidence_checked": "2026-10-28 核对 IEEE 出版页、作者项目页与 arXiv v2，确认五位作者、IROS 2022、DOI、先铺平再按给定折线折叠的范围；核对全文目录中的 IV-A/IV-B/IV-E/V-C/V-E。推荐阶段未完整精读实验或复现。",
+      "verified_on": "2026-10-28"
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "UMI（继续阅读）",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329v3",
+      "source_url": "https://umi-gripper.github.io/",
+      "notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+      "continuation_of": "2026-10-25",
+      "recommendation": "保留已选论文的继续入口，可直接复用完整中文精读笔记。今天若想联系实机，可聚焦从手持夹爪迁移到 OpenArm 时，相机、指尖、可达范围和时延接口需要满足什么条件。",
+      "one_question": "同一套示范换到另一台机械臂，哪些接口仍然必须对齐？",
+      "visual_idea": "保持夹爪和腕部相机不变，切换两种机械臂；用简单可达区域说明同一目标为何可能触发限位，再指出时延需要重新测量。示意不声称已在 OpenArm 复现。",
+      "start_here": "正文 III-A 的 HD1、HD6 与 V-A 的跨机械臂实验，再回看 III-B 的时延接口；也可从10月25日阅读卡打开已有精读笔记，直接提出当前疑问。",
+      "reading_estimate": "20–30分钟围绕一个迁移条件复习并写自己的理解。",
+      "history_status": "2026-10-25 用户已选，AI精读笔记已保存；后续日记未新增用户笔记或读完确认。继续入口不自动新增已读记录。",
+      "evidence_checked": "2026-10-28 复核作者项目页的 RSS 2024 信息及硬件/策略接口概览；正文、附录、图表和代码细节沿用2026-10-25精读核查。没有新实机结果。",
+      "verified_on": "2026-10-28"
+    },
+    {
+      "id": "predictive-cbf-tac-2023",
+      "display_name": "Predictive Control Barrier Functions",
+      "title": "Predictive control barrier functions: Enhanced safety mechanisms for learning-based control",
+      "authors": "Kim P. Wabersich, Melanie N. Zeilinger",
+      "year": 2023,
+      "venue": "IEEE Transactions on Automatic Control 68(5):2638–2651 (2023)",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/2105.10241v3",
+      "source_url": "https://www.research-collection.ethz.ch/entities/publication/777c5871-fd43-4b6f-9b3e-35deb0aa1678",
+      "publication_url": "https://doi.org/10.1109/TAC.2022.3175628",
+      "recommendation": "AMR恢复方向的新备选：在昨日 Predictive Safety Filter 候选的基础上，研究模型偏差使原问题不可行时的恢复机制。关注软约束、约束收紧和终端控制障碍函数的作用与适用条件。",
+      "one_question": "安全过滤器找不到可行解时，怎样逐步回到可行区域？",
+      "visual_idea": "二维状态空间中展示原可行区域、受扰后的状态和逐步减小约束违反的恢复路径。区分回到可行区域与全程没有违反约束，所有保证均需保留原文假设和作用域。",
+      "start_here": "先读 II-B Simplistic soft constrained predictive safety filter，再读 III-A Tightened soft constraints、III-B Terminal control barrier function；最后用 V-B 的运动学小车数值例子理解恢复，证明部分按需要续读。",
+      "reading_estimate": "60–90分钟首轮机制；集合稳定性证明可另分一轮。",
+      "history_status": "10月27日推荐了2021年的 Predictive Safety Filter，但未确认选读；本篇是新的后续候选，可先读 II-A 补上前置概念。",
+      "evidence_checked": "2026-10-28 核对ETH机构记录的两位作者、2023-05、IEEE TAC 68(5)、页码及DOI；作者 arXiv v3核对2022-05版本、恢复机制概览与全文阅读入口。实验为数值例子，未标作AMR实机验证；尚未完整精读证明和适用域。",
+      "verified_on": "2026-10-28"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-28T16:04:19+00:00"
+    }
+  ]
+}

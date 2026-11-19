@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "umi-2024",
+      "display_name": "UMI（继续昨天）",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329v3",
+      "source_url": "https://umi-gripper.github.io/",
+      "notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+      "continuation_of": "2026-10-25",
+      "recommendation": "首选继续昨天已选的 UMI。已有完整 AI 精读讲解，今天集中弄懂一个机制并写自己的理解，不急着换篇；最贴近 OpenArm 双臂叠衣的时序与协作。",
+      "one_question": "为什么希望双手同时动作，却可能需要在不同时间发送命令？",
+      "visual_idea": "两条时间轴分别显示机械臂和夹爪：同时发送但错时到达，再改为提前量不同但同时到达。无旁白，极少标签；仅为教学示意。",
+      "start_here": "正文 III-B 的 observation/action latency matching 与图5，再读 V-C 双臂叠衣的相对夹爪位姿消融。可从 2026-10-25 阅读卡打开已有完整精读笔记。",
+      "reading_estimate": "20–30分钟复习一个机制并写三句话；其余部分按实际理解继续。",
+      "history_status": "2026-10-25 用户已选；AI已读正文与附录并保存讲解。尚无用户笔记与读完确认，因此保留为继续选项，不计作已读。",
+      "evidence_checked": "2026-10-26 复核作者项目页的 RSS 2024 信息与方法概览；正文/附录及代码细节沿用 2026-10-25 精读核查，没有重复标作新读论文。",
+      "verified_on": "2026-10-26"
+    },
+    {
+      "id": "act-aloha-rss-2023",
+      "display_name": "ACT / ALOHA",
+      "title": "Learning Fine-Grained Bimanual Manipulation with Low-Cost Hardware",
+      "authors": "Tony Z. Zhao, Vikash Kumar, Sergey Levine, Chelsea Finn",
+      "year": 2023,
+      "venue": "Robotics: Science and Systems (RSS) 2023",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2304.13705v1",
+      "source_url": "https://tonyzhaozh.github.io/aloha/",
+      "publication_url": "https://roboticsproceedings.org/rss19/p016.html",
+      "recommendation": "OpenArm方向的新备选：把注意力从 UMI 的采集接口转向动作策略，理解双臂示范怎样变成动作序列，以及策略误差如何随时间累积。",
+      "one_question": "一次预测一段动作，怎样兼顾连贯性与根据新观察纠错？",
+      "visual_idea": "显示相邻预测窗口覆盖同一时刻的目标，比较逐步预测、动作块和时间集成；具体权重与效果须在精读后按原文解释。",
+      "start_here": "先看 IV-A Action Chunking and Temporal Ensemble，再看 IV-B 的 CVAE 与 V 中对应消融；有余力再读 III 的 ALOHA 硬件。",
+      "reading_estimate": "45–60分钟首轮机制；完整实验与附录可另留时间。",
+      "history_status": "UMI讲解中提及可替换的策略，现有阅读日记未记录选读或完成原始 ACT/ALOHA 论文；不把提到名称当作读过。",
+      "evidence_checked": "已核对 RSS 官方论文页的题目、四位作者、2023会议发表与 DOI；作者项目页核对 action chunking/CVAE 概览，arXiv v1目录核对 IV-A/IV-B 入口。推荐阶段未完整精读，也未复现。",
+      "verified_on": "2026-10-26"
+    },
+    {
+      "id": "cautious-gp-mpc-tcst-2020",
+      "display_name": "Cautious GP-MPC",
+      "title": "Cautious Model Predictive Control Using Gaussian Process Regression",
+      "authors": "Lukas Hewing, Juraj Kabzan, Melanie N. Zeilinger",
+      "year": 2020,
+      "venue": "IEEE Transactions on Control Systems Technology, 28(6), 2020（期刊版；2017年初版预印本，所链接v4更新于2019年）",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/1705.10702v4",
+      "source_url": "https://www.research-collection.ethz.ch/entities/publication/6676e437-46c3-4b69-8d8f-9dab2ad4d299",
+      "publication_url": "https://doi.org/10.1109/TCST.2019.2949757",
+      "recommendation": "AMR方向的新备选：接到已有 RC-LB-NMPC 讨论，聚焦 GP 残差模型的不确定性如何传播到预测与机会约束；是否适用于自己的底盘需另做验证。",
+      "one_question": "预测的平均轨迹相同，为什么不确定性更大时要离边界更远？",
+      "visual_idea": "同一条均值轨迹周围逐渐扩大的不确定性带，与可行边界及保留距离对照。标明教学示意，不能把概率约束描述成无条件安全保证。",
+      "start_here": "先读 II-B/II-C 的模型与 GP，再读 III-B Uncertainty Propagation、III-D Chance Constraint Formulation；最后核对 V 的实车实验条件。",
+      "reading_estimate": "60–90分钟首轮；概率与协方差推导可能需要分两次阅读。",
+      "history_status": "现有长期笔记含 RC-LB-NMPC，未记录这篇作为独立选读或确认完成；今天是另一个具体方法的候选。",
+      "evidence_checked": "已用作者arXiv v4核对题目、作者、期刊发表备注与模型概览；ETH机构记录核实2020-11、IEEE TCST 28(6)及发表状态；全文目录核对阅读入口。尚未完整精读具体近似、保证条件及实验数值。",
+      "verified_on": "2026-10-26"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-10-26T16:05:48+00:00"
+    }
+  ]
+}

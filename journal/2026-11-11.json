@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-11",
+  "timezone": "America/Los_Angeles",
+  "status": "awaiting_selection",
+  "selected_paper_id": null,
+  "recommendations": [
+    {
+      "id": "intermittent-event-mpc-automatica-2017",
+      "display_name": "Event-triggered MPC：采样与重算分开",
+      "title": "Event-Triggered Intermittent Sampling for Nonlinear Model Predictive Control",
+      "authors": "Kazumune Hashimoto; Shuichi Adachi; Dimos V. Dimarogonas",
+      "year": 2017,
+      "venue": "Automatica 81:148–155（2017-07）；DOI 10.1016/j.automatica.2017.03.028",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://people.kth.se/~dimos/pdfs/Kazu_Automatica_2017.pdf",
+      "source_url": "https://keio.elsevierpure.com/en/publications/event-triggered-intermittent-sampling-for-nonlinear-model-predict/",
+      "paper_version": "作者托管稿，页眉日期 2017-02-21，10 页；另有 arXiv:1703.05088v1（2017-03-15）。阅读页码/公式以作者托管稿为准，未声明与出版排版逐字相同。",
+      "recommendation": "首选，贴近 AMR 时序：区分读取状态、检查触发条件、重新求解 MPC 三件事。SDS 决定检查间隔，ETS 决定是否重算；适合思考算力与传感负担如何分配。与 11/06 的 self-triggered 论文不同，本篇在离散检查时刻利用新测量决定下一次更新。",
+      "one_question": "为什么当前采样点仍可行，也可能需要现在就重算 MPC？",
+      "start_here": "先读作者稿第 4 节 Fig. 2–3（PDF 第 5–6 页）：采样与重算的分工、两次检查之间可能失去可行性。接着看式 (16)–(17) 和 Algorithm 1（第 7 页）的前瞻检查；再读第 6 节 Fig. 4–5（第 8 页）比较采样与求解负担。选中后回查第 2–3 节假设、Theorem 1–2 与 Remark 4。",
+      "reading_estimate": "建议先用 30–40 分钟读机制与仿真；若补 MPC 可行性、Lipschitz 界和稳定性证明，另留 60–90 分钟。",
+      "visual_idea": "原创示意：预测误差曲线在两个采样点之间越过可行性阈值；加上覆盖下一采样间隔的界后，控制器提前重算。用两排时间点区分 Check / Solve。只表示论文的可行性机制，不画成已验证的 AMR 避障或故障恢复结果。",
+      "history_status": "当前索引按题目、ID、arXiv 1703.05088 和 DOI 查询无记录；未发现既有讨论登记。相关的 self-triggered MPC 曾推荐，但不是同篇。",
+      "evidence_checked": "已核对 Keio 同行评审/出版记录、arXiv 版本和 KTH 作者全文第 2–6 节。保证依赖可行初值、模型及扰动界、局部稳定控制器等条件；仿真是二维非线性系统，作者也承认允许扰动界偏小。未证明 AMR 硬件、任意计算延迟、抖动或故障恢复。出版方直连 403，机构记录与作者稿可读；未找到可核实的论文专属公开实现。公式细节及迁移条件留待选读核对，未复现。",
+      "verified_on": "2026-11-11T12:08:08-08:00",
+      "source_checks": [
+        "https://keio.elsevierpure.com/en/publications/event-triggered-intermittent-sampling-for-nonlinear-model-predict/",
+        "https://www.sciencedirect.com/science/article/pii/S0005109817301589",
+        "https://arxiv.org/abs/1703.05088",
+        "https://people.kth.se/~dimos/pdfs/Kazu_Automatica_2017.pdf"
+      ]
+    },
+    {
+      "id": "bimanual-cloth-benchmark-ral-2020",
+      "display_name": "Benchmarking Bimanual Cloth Manipulation",
+      "title": "Benchmarking Bimanual Cloth Manipulation",
+      "authors": "Irene Garcia-Camacho; Martina Lippi; Michael C. Welle; Hang Yin; Rika Antonova; Anastasiia Varava; Júlia Borràs; Carme Torras; Alessandro Marino; Guillem Alenyà; Danica Kragic",
+      "year": 2020,
+      "venue": "IEEE Robotics and Automation Letters 5(2):1111–1118（2020）；2019-12-11 接收；DOI 10.1109/LRA.2020.2965891",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://ral-si.github.io/cloth-benchmark/Benchmark_for_cloth_manipulation.pdf",
+      "source_url": "https://www.iri.upc.edu/publications/show/2270",
+      "project_url": "https://ral-si.github.io/cloth-benchmark/",
+      "paper_version": "项目托管的 8 页 accepted/preprint manuscript，页眉注明 Accepted December 2019；正式期刊发表于 2020。",
+      "recommendation": "备选，适合给 OpenArm 的早期叠衣实验定目标：按初始布料状态和抓取/操作阶段拆分难度，分别报告成功、耗时与质量。可以借鉴其评测结构，从预先夹好或铺平的布料逐步增加难度；这是针对你项目的建议，原文折叠任务是毛巾，不是完整 T-shirt 折叠方案。",
+      "one_question": "同样折好一次，预先夹住两角和从揉皱布料开始，为什么不能算成同一种成功？",
+      "start_here": "从 II-A.2（Task 2）和 Fig. 3 读起，再看 II-B.3 的初态、II-C 的 GR1/GR2/MAN 阶段与 II-D 的评分。对照 III-B、Table II、IV-B：毛巾 baseline 只测试预抓两角后的第一折。项目 Resources 中有 Task 2 protocol v1.0 和评分表，可作为选读入口。",
+      "reading_estimate": "建议 25–35 分钟读任务、评分和 baseline；再用约 20 分钟思考适用于 OpenArm 的最小实验记录。",
+      "visual_idea": "原创并排流程：左侧已夹住两角直接 Fold，右侧从揉皱状态依次 Grasp 1 → Grasp 2 → Fold；终态看似相同，但评分明确标出不同起点和已测试阶段。只作评测示意，不编造 OpenArm 成功率。",
+      "history_status": "当前索引按题目、ID、原文 URL 和 DOI 查询无记录；未发现既有讨论登记。",
+      "evidence_checked": "已核对 IRI/UPC 机构元数据、项目原稿 II–IV 与官方协议入口。全文接收记录和机构记录确认 RA-L 2020。毛巾 baseline 使用双 TIAGo、已知尺寸/位置与同步 DMP，结果仅覆盖预抓两角后的第一折；不能外推到揉皱 T-shirt 或固定桌面 OpenArm。项目提供协议、评分表和资源；本轮未核实完整折叠机器人源码。IRI 直连超时、UPC 直连 403，项目全文可读，机构索引元数据可核查。尚未精读评分公式、运行实现或硬件复现。",
+      "verified_on": "2026-11-11T12:08:08-08:00",
+      "source_checks": [
+        "https://www.iri.upc.edu/publications/show/2270",
+        "https://upcommons.upc.edu/entities/publication/92935ba8-2516-4e48-a63c-d15b89b194f0",
+        "https://ral-si.github.io/cloth-benchmark/",
+        "https://ral-si.github.io/cloth-benchmark/Benchmark_for_cloth_manipulation.pdf"
+      ]
+    },
+    {
+      "id": "umi-2024",
+      "display_name": "UMI（继续未完成阅读）",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi; Zhenjia Xu; Chuer Pan; Eric Cousineau; Benjamin Burchfiel; Siyuan Feng; Russ Tedrake; Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems（RSS 2024）；DOI 10.15607/RSS.2024.XX.045",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/html/2402.10329v3",
+      "source_url": "https://roboticsproceedings.org/rss20/p045.html",
+      "project_url": "https://umi-gripper.github.io/",
+      "code_url": "https://github.com/real-stanford/universal_manipulation_interface",
+      "paper_version": "arXiv:2402.10329v3，2024-03-06；发表状态由 RSS 2024 官方论文集核实。",
+      "recommendation": "备选续读，沿用已选择的论文。你此前要求不要跳过太多信息，因此仍先补齐采集 → 动作标签 → policy → 执行的因果链，再看动作坐标表示；不假定已有 AI 解释已被理解。它与双臂示范和 OpenArm 叠衣有关，是否适配仍需实测。",
+      "one_question": "UMI 的相对轨迹固定在哪个起点，为什么不等于逐步累加的 delta action？",
+      "start_here": "先按你的具体疑问接回整体流程，再读 III-B 的 PD2.1–PD2.2 与 Fig. 6，对照固定参考位姿和逐步增量；需要联系双臂叠衣时再接 PD2.3 与 V-C。进入已有 UMI 专属任务继续，无需重建任务或重写长笔记。",
+      "reading_estimate": "建议 30–45 分钟续读一个机制，先解释必要概念；不默认全文重读，不把讲解或自测题的出现当成完成。",
+      "visual_idea": "同一段三步末端轨迹，一边所有目标共用本次推理的参考位姿，一边每步相对上一目标；用参考轴变化解释两种表示。作为原理示意，不编造误差量或 OpenArm 对比结果。",
+      "history_status": "2026-10-25 已选择，2026-10-31 有导读与讲解深度反馈。当前阅读中；实际读到哪里/理解程度未知，user_notes=0，无读完确认。已有专属任务 private-thread-id-redacted；选中后重新查 registry 并复用。完整笔记在 robotics-research-notes/umi。",
+      "evidence_checked": "已复核 RSS 论文集、arXiv v3、作者项目和 III-B/Fig. 6 相关原文。relative trajectory 与逐步 delta 不能混称；本篇的机器人实验不等于 OpenArm 已验证。续读仍需按具体问题核对消融与适用条件，既有 AI 笔记不计为用户理解或读完。",
+      "verified_on": "2026-11-11T12:08:08-08:00",
+      "source_checks": [
+        "https://roboticsproceedings.org/rss20/p045.html",
+        "https://arxiv.org/abs/2402.10329",
+        "https://arxiv.org/html/2402.10329v3",
+        "https://umi-gripper.github.io/"
+      ]
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [],
+  "canonical_notes_url": null,
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "at": "2026-11-11T20:09:38+00:00"
+    }
+  ]
+}

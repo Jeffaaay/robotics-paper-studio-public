@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "timezone": "America/Los_Angeles",
+  "status": "reading",
+  "selected_paper_id": "umi-2024",
+  "recommendations": [
+    {
+      "id": "umi-2024",
+      "title": "Universal Manipulation Interface: In-The-Wild Robot Teaching Without In-The-Wild Robots",
+      "authors": "Cheng Chi, Zhenjia Xu, Chuer Pan, Eric Cousineau, Benjamin Burchfiel, Siyuan Feng, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "Robotics: Science and Systems (RSS) 2024",
+      "publication_status": "peer_reviewed_conference",
+      "paper_url": "https://arxiv.org/abs/2402.10329",
+      "source_url": "https://umi-gripper.github.io/",
+      "recommendation": "首选：接到你现在的OpenArm双臂夹爪叠衣方向，也能连接你已有的RealDexUMI讨论。",
+      "one_question": "为什么动作预测正确，时间没对齐，机器人还是会抖？",
+      "visual_idea": "同一段夹爪运动：先显示观察/动作时间错位，再把时间对齐。只是教学示意，不能冒充UMI复现。",
+      "start_here": "先读系统概览、policy interface中的latency matching，再核对dynamic tossing消融；下一步看双臂叠衣的相对夹爪位姿。",
+      "reading_estimate": "60–90分钟首轮核心机制；完整精读以实际理解为准。",
+      "history_status": "此前讨论过相关RealDexUMI，未确认已精读原始UMI",
+      "evidence_checked": "2026-10-25 已阅读 arXiv v3 正文与附录 A–F，视觉核对图5、图8、表A1；核对作者项目页和公开代码中的坐标、时延与部署接口。AI解释已保存；用户尚未确认读完，未做实机复现。",
+      "verified_on": "2026-10-25"
+    },
+    {
+      "id": "diffusion-policy-ijrr-2024",
+      "title": "Diffusion Policy: Visuomotor Policy Learning via Action Diffusion",
+      "authors": "Cheng Chi, Zhenjia Xu, Siyuan Feng, Eric Cousineau, Yilun Du, Benjamin Burchfiel, Russ Tedrake, Shuran Song",
+      "year": 2024,
+      "venue": "The International Journal of Robotics Research (IJRR), journal version; RSS 2023 earlier version",
+      "publication_status": "peer_reviewed_journal",
+      "paper_url": "https://arxiv.org/abs/2303.04137v5",
+      "source_url": "https://diffusion-policy.cs.columbia.edu/",
+      "recommendation": "期刊备选：补上你之前在Bunny/OpenArm里提到的Diffusion Policy，并明确读IJRR版本。",
+      "one_question": "为什么两条都能成功的动作，取平均反而会失败？",
+      "visual_idea": "绕开障碍物的左右两条路径与撞向中间的平均路径，用来解释多峰动作分布；不是论文实测轨迹。",
+      "start_here": "先看多峰动作分布与action sequence/receding horizon，再查对应基线和实验条件。",
+      "reading_estimate": "60–90分钟首轮；扩展版方法和实验可分两天精读。",
+      "history_status": "方法名称已讨论，未确认已精读IJRR版本",
+      "evidence_checked": "作者项目页核实RSS 2023与IJRR 2024版本、作者列表、action diffusion与receding horizon概览；未在本轮完整精读PDF",
+      "verified_on": "2026-10-25"
+    },
+    {
+      "id": "safe-learning-review-2022",
+      "title": "Safe Learning in Robotics: From Learning-Based Control to Safe Reinforcement Learning",
+      "authors": "Lukas Brunke, Melissa Greeff, Adam W. Hall, Zhaocong Yuan, Siqi Zhou, Jacopo Panerati, Angela P. Schoellig",
+      "year": 2022,
+      "venue": "Annual Review of Control, Robotics, and Autonomous Systems 5:411–444",
+      "publication_status": "peer_reviewed_review",
+      "paper_url": "https://doi.org/10.1146/annurev-control-042920-020211",
+      "source_url": "https://www.annualreviews.org/content/journals/10.1146/annurev-control-042920-020211",
+      "recommendation": "AMR方向备选：把你已在读的RC-LB-NMPC放回safe learning的大图景。",
+      "one_question": "奖励里惩罚危险，和真正施加约束有什么不同？",
+      "visual_idea": "同一动作在评分排序与可行性筛选中的不同待遇；任何安全保证必须连同适用假设说明。",
+      "start_here": "先读摘要和框架分类，再选learning-based control或safety certification相关小节；不是今天硬读完34页。",
+      "reading_estimate": "45–60分钟框架与一个小节；完整精读预计多天。",
+      "history_status": "与已讨论RC-LB-NMPC紧密相关，未确认读过此综述",
+      "evidence_checked": "出版机构核实题目、作者、年份、页码与摘要；全文相关段落在选定后进一步核实",
+      "verified_on": "2026-10-25"
+    }
+  ],
+  "user_notes": [],
+  "assistant_notes": [
+    {
+      "text": "UMI 精读讲解已保存到 canonical_notes_url：从手持示范、SLAM数据、Diffusion Policy、相对轨迹、时延匹配到双臂协作；含实验分母、评估条件与 OpenArm 适用边界。论文叠衣14/20，对照无双夹爪相对位姿6/20；抛掷105/120个物体，对照关闭时延匹配69/120。训练杯子款数正文15与附录18有口径不一致，已标注。仅为AI分析，不计作用户笔记或已读确认。",
+      "source": "arXiv:2402.10329v3 full text and appendices; author project and implementation, checked 2026-10-25",
+      "at": "2026-10-25T23:34:14+00:00"
+    },
+    {
+      "text": "按用户的 paper-guide-zh 续读请求提供中文导读，核对 arXiv v3 的 Fig. 5 原图、III-B PD1.1/PD1.2、V-B：整体流程；按图像采集时刻插值对齐观测；按各硬件执行延迟提前发令；舍弃过期动作。投掷实验开启延迟匹配为 105/120（87.5%），同时关闭观测/动作延迟补偿为 69/120（57.5%），不能拆出单项贡献或视作 OpenArm 验证。教学时间例子与 OpenArm 迁移判断均标为 AI 解释/待测。留下两个脱稿问题，用户尚未作答。只增加 AI 解释记录，未记用户研究笔记、已读、视频或批准；详见 papers/umi-2024/PROGRESS.md。\n",
+      "source": "2026-10-31 paper-guide-zh continuation; arXiv:2402.10329v3 Fig. 5, III-B, V-B verified against original text and figure",
+      "at": "2026-10-31T11:18:51+00:00"
+    },
+    {
+      "text": "用户反馈上一轮省略过多后，AI 补齐中文导读中的因果链：采集问题与 embodiment gap；Fig. 2 硬件功能；视频/IMU 经离线 SLAM 和夹爪标记提取动作标签；训练观察到未来动作序列的 Diffusion Policy；末端位姿、相对轨迹与双臂相对关系；部署端控制接口与 Fig. 5 时间轴；实验分母、消融范围、泛化与 OpenArm 适配限制。回查 arXiv v3 正文，视觉核对 Fig. 2，查阅作者 SLAM pipeline、观测/动作转换和控制接口代码。更新 paper-guide-zh 的默认讲解深度，暂缓自测。仅记录 AI 讲解与用户教学反馈，未推断用户掌握、读完或硬件复现。\n",
+      "source": "2026-10-31 user depth correction; arXiv v3 and official UMI implementation",
+      "at": "2026-10-31T11:38:11+00:00"
+    }
+  ],
+  "canonical_notes_url": "https://github.com/Jeffaaay/robotics-research-notes/blob/main/umi/README.md",
+  "reading": {
+    "completed_at": null,
+    "confirmation": null
+  },
+  "content": {
+    "one_point": null,
+    "evidence": [],
+    "video_status": "not_started",
+    "review_item_id": null,
+    "instagram_caption": null,
+    "twitter_draft": null,
+    "twitter_status": "not_started"
+  },
+  "publication": {
+    "instagram_url": null,
+    "twitter_url": null
+  },
+  "events": [
+    {
+      "type": "recommendations_created",
+      "date": "2026-10-25",
+      "source": "Codex; primary-source checks"
+    },
+    {
+      "type": "user_selected",
+      "paper_id": "umi-2024",
+      "at": "2026-10-25T23:29:01+00:00"
+    },
+    {
+      "type": "assistant_note_added",
+      "at": "2026-10-25T23:34:14+00:00"
+    },
+    {
+      "type": "assistant_note_added",
+      "at": "2026-10-31T11:18:51+00:00"
+    },
+    {
+      "type": "assistant_note_added",
+      "at": "2026-10-31T11:38:11+00:00"
+    }
+  ]
+}
